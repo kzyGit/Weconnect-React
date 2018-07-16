@@ -5,6 +5,7 @@ import Footer from './Footer';
 import {Link} from 'react-router';
 import axios from 'axios'
 import swal from 'sweetalert';
+import JwPagination from 'jw-react-pagination';
 
 class Businesses extends Component {
   render() {
@@ -26,8 +27,14 @@ class HomeContent extends Component {
     this.onChangePage = this.onChangePage.bind(this);
 
     this.state = {
+        pageOfItems: [],
         businesses: []
     };
+}
+
+onChangePage(pageOfItems) {
+    // update local state with new page of items
+    this.setState({ pageOfItems });
 }
 
 
@@ -137,7 +144,7 @@ class HomeContent extends Component {
             </tr> 
             </thead>
             <tbody>
-            {this.state.businesses.map(business =>
+            {this.state.pageOfItems.map(business =>
             <tr key = {business.id}>
               <td><Link to={`/business/${business.id}`}>{business.name}</Link></td>
               <td>{business.category}</td>
@@ -150,6 +157,11 @@ class HomeContent extends Component {
           </table>
           <br /><br />
 
+          <div style={{ float:'right', textDecoration:'none' }}>
+            
+                  <JwPagination items={this.state.businesses} onChangePage={this.onChangePage} />
+          </div>
+          
          
           </div>
         
