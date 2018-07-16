@@ -5,6 +5,8 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import Home from './Components/Home';
 import Root from './Components/Root';
 import Signup from './Components/Signup';
+import Login from './Components/Login';
+import registerServiceWorker from './registerServiceWorker';
 
 class App extends React.Component {
     render() {
@@ -14,6 +16,7 @@ class App extends React.Component {
                     <IndexRoute component={Home} />
                     <Route path={"home"} component={Home} />
                     <Route path={"signup"} component={Signup} />
+                    <Route path={"login"} component={Login} />
                     
                 </Route>
             </Router>
