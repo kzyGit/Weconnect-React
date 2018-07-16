@@ -11,6 +11,8 @@ import CreateBusiness from './Components/CreateBusiness';
 import Business from './Components/Business';
 import Editpassword from './Components/Editpassword';
 import EditBusiness from './Components/EditBusiness';
+import Resetpassword from './Components/Resetpassword';
+import Resetpwd from './Components/Resetpwd';
 import Dashboard from './Components/Dashboard';
 import registerServiceWorker from './registerServiceWorker';
 
