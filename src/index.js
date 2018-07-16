@@ -4,7 +4,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 import Home from './Components/Home';
 import Root from './Components/Root';
-import registerServiceWorker from './registerServiceWorker';
+import Signup from './Components/Signup';
 
 class App extends React.Component {
     render() {
@@ -13,6 +13,7 @@ class App extends React.Component {
                 <Route path={"/"} component={Root} >
                     <IndexRoute component={Home} />
                     <Route path={"home"} component={Home} />
+                    <Route path={"signup"} component={Signup} />
                     
                 </Route>
             </Router>
