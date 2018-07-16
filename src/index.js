@@ -6,7 +6,7 @@ import Home from './Components/Home';
 import Root from './Components/Root';
 import Signup from './Components/Signup';
 import Login from './Components/Login';
-import registerServiceWorker from './registerServiceWorker';
+import Logout from './Components/Logout';
 
 class App extends React.Component {
     render() {
@@ -17,6 +17,7 @@ class App extends React.Component {
                     <Route path={"home"} component={Home} />
                     <Route path={"signup"} component={Signup} />
                     <Route path={"login"} component={Login} />
+                    <Route path={"logout"} component={Logout} />
                     
                 </Route>
             </Router>
