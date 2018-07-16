@@ -9,6 +9,7 @@ import Login from './Components/Login';
 import Logout from './Components/Logout';
 import CreateBusiness from './Components/CreateBusiness';
 import Business from './Components/Business';
+import Businesses from './Components/Businesses';
 import Editpassword from './Components/Editpassword';
 import EditBusiness from './Components/EditBusiness';
 import Resetpassword from './Components/Resetpassword';
@@ -32,6 +33,8 @@ class App extends React.Component {
                     <Route path={"editBusiness/:bid"} component={EditBusiness} />
                     <Route path={"businesses"} component={Businesses} />
                     <Route path={"dashboard"} component={Dashboard} />
+                    <Route path={"resetPassword"} component={Resetpassword} />
+                    <Route path={"resetPwd/:token"} component={Resetpwd} />
                     
                 </Route>
             </Router>
