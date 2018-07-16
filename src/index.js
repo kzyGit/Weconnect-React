@@ -8,6 +8,7 @@ import Signup from './Components/Signup';
 import Login from './Components/Login';
 import Logout from './Components/Logout';
 import Editpassword from './Components/Editpassword';
+import CreateBusiness from './Components/CreateBusiness';
 import registerServiceWorker from './registerServiceWorker';
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
                     <Route path={"login"} component={Login} />
                     <Route path={"logout"} component={Logout} />
                     <Route path={"editPassword"} component={Editpassword} />
+                    <Route path={"addbusiness"} component={CreateBusiness} />
                     
                 </Route>
             </Router>
