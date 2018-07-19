@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import Header from './Header';
 import Footer from './Footer';
-// import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
@@ -15,8 +14,7 @@ class Logout extends Component {
         <Footer />
       </div>
     );
-  }
-}
+  }}
 
 class LogoutContent extends Component {
 
@@ -36,19 +34,13 @@ class LogoutContent extends Component {
         icon: "success",
         button: "Ok",
       });
-    }
-
-
-
-  }
+    }}
 
   render() {
     return (
       <div className="signupcontent">
       </div>
-
     );
-  }
-}
+  }}
 
 export default Logout;

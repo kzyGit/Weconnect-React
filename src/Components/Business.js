@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import icon from '../Images/businessicon.png';
 import axios from 'axios'
@@ -27,7 +27,7 @@ class Business extends Component {
   }
   componentDidMount() {
     const bid = this.props.params.bid;
-    axios.get(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses/${this.props.params.bid}`).then(response => {
+    axios.get(`${Base_url}/businesses/${this.props.params.bid}`).then(response => {
       this.setState({ businesses: response.data });
     }).catch(error => {
       if (error.response.status === 404) {
@@ -37,7 +37,7 @@ class Business extends Component {
 
     });
 
-    axios.get(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses/${bid}/review`).then(response => {
+    axios.get(`${Base_url}/businesses/${bid}/review`).then(response => {
       this.setState({ reviews: response.data });
     }).catch(error => {
       if (error.response.status === 404) {
@@ -112,7 +112,7 @@ class Business extends Component {
     const bid = this.props.params.bid;
     const content = e.target.elements.content.value;
 
-    axios.post(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses/${bid}/review`, {
+    axios.post(`${Base_url}/businesses/${bid}/review`, {
       content: content
     }, config).then(response => {
       window.location.reload()

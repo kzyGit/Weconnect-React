@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -29,7 +29,7 @@ class SignupContent extends Component {
     // eslint-disable-next-line
     const confirm_password =  e.target.elements.confirm_password.value;
 
-    axios.post('https://weconnectapi-v2.herokuapp.com/api/v1/auth/register', {
+    axios.post(`${Base_url}/auth/register`, {
       username: username,
       email: email,
       password: password,
@@ -85,14 +85,10 @@ class SignupContent extends Component {
               </div><br />
             <a href="index.html" style={{float:'right'}}><button type="submit" className="btn btn-default">Submit</button></a>
           </form>
-              
-  
           </div>
           <div className = "col-md-1"></div>
-  
         </div>
       </div>
-    
           );
         }
       }

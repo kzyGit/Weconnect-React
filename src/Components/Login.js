@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header,{Base_url} from './Header';
 import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -30,7 +30,7 @@ class LoginContent extends Component {
     const password = e.target.elements.password.value;
     localStorage.setItem('loggedIn', false)
 
-    axios.post('https://weconnectapi-v2.herokuapp.com/api/v1/auth/login', {
+    axios.post(`${Base_url}/auth/login`, {
       username: username,
       password: password
     }).then(response => {

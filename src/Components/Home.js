@@ -17,8 +17,6 @@ class Home extends Component {
   }
 }
 
-export const Baseurl = 'https://weconnectapi-v2.herokuapp.com/api/v1'
-
 class HomeContent extends Component {
   
   render() {

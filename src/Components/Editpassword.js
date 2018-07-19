@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
@@ -89,7 +89,7 @@ class FormContent extends Component {
       headers: {'Authorization': "bearer " + access_token}
     }
 
-    axios.put('https://weconnectapi-v2.herokuapp.com/api/v1/auth/update_password', {
+    axios.put(`${Base_url}/auth/update_password`, {
       email: email,
       current_password: current_password,
       new_password: new_password,

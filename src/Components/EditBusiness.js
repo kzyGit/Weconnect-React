@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -34,7 +34,7 @@ class EditBusiness extends Component {
     const config = {headers: {'Authorization': "bearer " + auth_token}}
     const bid = this.props.params.bid;
 
-    axios.get(`https://weconnectapi-v2.herokuapp.com/api/v1/mybusinesses/${bid}`,config).then(response => {
+    axios.get(`${Base_url}/mybusinesses/${bid}`,config).then(response => {
       this.setState({ 
         businesses: response.data,
         id: response.data.Id,
@@ -69,7 +69,7 @@ class EditBusiness extends Component {
     }
     const bid = this.props.params.bid;
 
-    axios.put(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses/${bid}`, {
+    axios.put(`${Base_url}/businesses/${bid}`, {
       
       business_name: name,
       location: location,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
@@ -98,7 +98,7 @@ class FormContent extends Component {
       headers: { 'Authorization': "bearer " + access_token }
     }
 
-    axios.post('https://weconnectapi-v2.herokuapp.com/api/v1/businesses', {
+    axios.post(`${Base_url}/businesses`, {
       business_name: business_name,
       location: location,
       category: category,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import { Link } from 'react-router';
 import axios from 'axios'
@@ -38,7 +38,7 @@ class DashboardContent extends Component {
       const auth_token = localStorage.getItem("access_token")
       const config = { headers: { 'Authorization': "bearer " + auth_token } }
 
-      axios.get('https://weconnectapi-v2.herokuapp.com/api/v1/mybusinesses', config).then(response => {
+      axios.get(`${Base_url}/mybusinesses`, config).then(response => {
 
 
         this.setState({ businesses: response.data });
@@ -142,7 +142,7 @@ class DashboardContent extends Component {
       .then((willDelete) => {
         if (willDelete) {
 
-          axios.delete(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses/${business_id}`, config)
+          axios.delete(`${Base_url}/businesses/${business_id}`, config)
             .then(response => {
               this.componentDidMount()
               swal(response.data.Success, {

@@ -54,4 +54,7 @@ class Header extends Component {
   );
 }
 }
+
+export const Base_url = 'https://weconnectapi-v2.herokuapp.com/api/v1';
+
 export default Header;
