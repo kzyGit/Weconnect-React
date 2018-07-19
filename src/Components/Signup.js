@@ -40,7 +40,7 @@ class SignupContent extends Component {
       // sweet alert pop up
       swal({
           title: "Success!",
-          text: "You have registered successfully",
+          text: response.data.Success,
           icon: "success",
           button: "Log in",
         });

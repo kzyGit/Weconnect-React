@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
+import PropTypes from 'prop-types'
 // import { browserHistory } from 'react-router';
 
 
@@ -20,8 +21,7 @@ class EditPassword extends Component {
 
         const auth_token = this.props.params.token;
         const config = { headers: { 'Authorization': "bearer " + auth_token } }
-        console.log(config)
-
+        
         const new_password = e.target.elements.new_pwd.value;
         const confirm_password = e.target.elements.confirm_pwd.value;
 
@@ -32,7 +32,7 @@ class EditPassword extends Component {
 
             swal({
                 title: "Success!",
-                text: "Password reset successfully",
+                text: response.data.Success,
                 icon: "success",
                 button: "OK",
             });
@@ -94,4 +94,8 @@ class EditPassword extends Component {
     }
 }
 
+EditPassword.propTypes = {
+    params:PropTypes.object.isRequired
+  
+  }
 export default EditPassword;

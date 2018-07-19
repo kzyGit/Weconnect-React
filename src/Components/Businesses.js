@@ -183,3 +183,4 @@ onChangePage(pageOfItems) {
 
 
 export default Businesses;
+export { HomeContent }

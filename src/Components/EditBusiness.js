@@ -5,6 +5,7 @@ import Footer from './Footer';
 import axios from 'axios'
 import swal from 'sweetalert';
 import {browserHistory} from 'react-router';
+import PropTypes from 'prop-types'
 
 class EditBusiness extends Component {
 
@@ -80,7 +81,7 @@ class EditBusiness extends Component {
       // sweet alert pop up
       swal({
           title: "Success!",
-          text: "Business updated successfully",
+          text: response.data.Success,
           icon: "success",
           button: "OK",
         });
@@ -110,16 +111,13 @@ class EditBusiness extends Component {
   }
   render() {
     return (
+
       <div className="row">
       <Header />
-
-      <div className="businesscontent">
-      <div className = "row">
-        
+      <div className="row">
+      <div className="col-md-3"></div>
+      <div className="col-md-6" id="businesscontent">
         <h3 style={{paddingLeft:'20px',color:'break'}}>Edit my business</h3><br />
-
-        <div className="col-md-1" ></div>
-        <div className="col-md-10" >
         <form className="create-business-form" onSubmit={this.editBusiness}>
               <div className="form-group">
                 <label>Name:</label>
@@ -153,19 +151,20 @@ class EditBusiness extends Component {
               </div><br />
             <a style={{float:'right'}}><button type="submit" className="btn btn-primary">Update</button></a>
           </form> 
-        </div>
-        <div className = "col-md-1"></div>
-  
-        </div>
       </div>
-
-      <Footer />
-      </div>     
+      <div className="col-md-3"></div>
+      
+    </div> 
+    <Footer />
+    </div>
     );
   }
 }
 
+EditBusiness.propTypes = {
+  params:PropTypes.object.isRequired
 
+}
 export default EditBusiness;
 
 
