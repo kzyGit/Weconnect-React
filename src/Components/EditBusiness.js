@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, {Base_url} from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import axios from 'axios'
 import swal from 'sweetalert';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types'
 
 class EditBusiness extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       businesses: [],
@@ -23,88 +23,85 @@ class EditBusiness extends Component {
     this.editBusiness = this.editBusiness.bind(this)
   }
 
-
   componentDidMount() {
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to update a business', "error");
       browserHistory.push('/home')
     }
     else {
-    const auth_token = localStorage.getItem("access_token")
-    const config = {headers: {'Authorization': "bearer " + auth_token}}
-    const bid = this.props.params.bid;
+      const auth_token = localStorage.getItem("access_token")
+      const config = { headers: { 'Authorization': "bearer " + auth_token } }
+      const bid = this.props.params.bid;
 
-    axios.get(`${Base_url}/mybusinesses/${bid}`,config).then(response => {
-      this.setState({ 
-        businesses: response.data,
-        id: response.data.Id,
-        name: response.data.Name,
-        location: response.data.Location,
-        about: response.data.description,
-        category: response.data.category
-       })
-    }).catch(error => {
-      if (error.response.status === 404){
+      axios.get(`${Base_url}/mybusinesses/${bid}`, config).then(response => {
+        this.setState({
+          businesses: response.data,
+          id: response.data.Id,
+          name: response.data.Name,
+          location: response.data.Location,
+          about: response.data.description,
+          category: response.data.category
+        })
+      }).catch(error => {
+        if (error.response.status === 404) {
           const message = error.response.data.Error
           swal("message!!", message, "error");
-      }
-      else if (error.response.status === 401){
-        swal("Error!!", error.response.data.Error, "error");
-        localStorage.removeItem('loggedIn')
-        browserHistory.push('/login')
+        }
+        else if (error.response.status === 401) {
+          swal("Error!!", error.response.data.Error, "error");
+          localStorage.removeItem('loggedIn')
+          browserHistory.push('/login')
         }
 
-  });
-
-
-  }}
-
+      });
+    }
+  }
 
   editBusiness = (e) => {
     e.preventDefault()
     const { name, location, about, category } = this.state
     const access_token = localStorage.getItem("access_token")
     const config = {
-      headers: {'Authorization': "bearer " + access_token}
+      headers: { 'Authorization': "bearer " + access_token }
     }
     const bid = this.props.params.bid;
 
     axios.put(`${Base_url}/businesses/${bid}`, {
-      
+
       business_name: name,
       location: location,
       category: category,
       about: about
 
-    }, config).then(response =>{
+    }, config).then(response => {
       browserHistory.push('/businesses')
       // sweet alert pop up
       swal({
-          title: "Success!",
-          text: response.data.Success,
-          icon: "success",
-          button: "OK",
-        });
-  })
-  .catch(error => {
-      
-      if (error.response.status === 409){
-        swal("Error!!", error.response.data.Error, "error");
-        }
+        title: "Success!",
+        text: response.data.Success,
+        icon: "success",
+        button: "OK",
+      });
+    })
+      .catch(error => {
 
-      else if (error.response.status === 401){
-        swal("Error!!", error.response.data.Error, "error");
-        localStorage.removeItem('loggedIn')
-        browserHistory.push('/login')
-        }
-      else if(error.response.status === 400){
+        if (error.response.status === 409) {
           swal("Error!!", error.response.data.Error, "error");
         }
-  });
+
+        else if (error.response.status === 401) {
+          swal("Error!!", error.response.data.Error, "error");
+          localStorage.removeItem('loggedIn')
+          browserHistory.push('/login')
+        }
+        else if (error.response.status === 400) {
+          swal("Error!!", error.response.data.Error, "error");
+        }
+      });
 
   }
 
-  changelog(e){
+  changelog(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -113,56 +110,56 @@ class EditBusiness extends Component {
     return (
 
       <div className="row">
-      <Header />
-      <div className="row">
-      <div className="col-md-3"></div>
-      <div className="col-md-6" id="businesscontent">
-        <h3 style={{paddingLeft:'20px',color:'break'}}>Edit my business</h3><br />
-        <form className="create-business-form" onSubmit={this.editBusiness}>
+        <Header />
+        <div className="row">
+          <div className="col-md-3"></div>
+          <div className="col-md-6" id="businesscontent">
+            <h3 style={{ paddingLeft: '20px', color: 'break' }}>Edit my business</h3><br />
+            <form className="create-business-form" onSubmit={this.editBusiness}>
               <div className="form-group">
                 <label>Name:</label>
-                <input type="text" className="field"  onChange={this.changelog} name='name' value={this.state.name} required/>
-                
+                <input type="text" className="field" onChange={this.changelog} name='name' value={this.state.name} required />
+
               </div><br />
               <div className="form-group">
                 <label>Location:</label>
-                <input type="text" className="field"   onChange={this.changelog} name='location' value={this.state.location} required/>
+                <input type="text" className="field" onChange={this.changelog} name='location' value={this.state.location} required />
               </div><br />
-              <div className="form-group"> 
+              <div className="form-group">
                 <label>Category:</label>
-                
+
                 <select className="field" name='category' onChange={this.changelog} required>
-                <option>{this.state.category}</option>
-                <option>Technology</option>
-                <option>Tourism & Hotels</option>
-                <option>Health</option>
-                <option>Education</option>
-                <option>Finance & Accounting</option>
-                <option>Farming</option>
-                <option>Ecommerse</option>
-                <option>Real Estate</option>
-                <option>Manufacturing</option>
+                  <option>{this.state.category}</option>
+                  <option>Technology</option>
+                  <option>Tourism & Hotels</option>
+                  <option>Health</option>
+                  <option>Education</option>
+                  <option>Finance & Accounting</option>
+                  <option>Farming</option>
+                  <option>Ecommerse</option>
+                  <option>Real Estate</option>
+                  <option>Manufacturing</option>
                 </select>
               </div><br />
 
               <div className="form-group">
                 <label >About:</label><br /><br />
-                <textarea className="form-control"  onChange={this.changelog}  rows='8'name='about' value={this.state.about} required></textarea>
+                <textarea id='textarea' onChange={this.changelog} rows='8' name='about' value={this.state.about} required></textarea>
               </div><br />
-            <a style={{float:'right'}}><button type="submit" className="btn btn-primary">Update</button></a>
-          </form> 
+              <a style={{ float: 'right', marginTop: '180px' }}><button type="submit" className="btn btn-primary">Update</button></a>
+            </form>
+          </div>
+          <div className="col-md-3"></div>
+
+        </div>
+        <Footer />
       </div>
-      <div className="col-md-3"></div>
-      
-    </div> 
-    <Footer />
-    </div>
     );
   }
 }
 
 EditBusiness.propTypes = {
-  params:PropTypes.object.isRequired
+  params: PropTypes.object.isRequired
 
 }
 export default EditBusiness;
