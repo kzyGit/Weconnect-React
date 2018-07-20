@@ -37,6 +37,7 @@ class LoginContent extends Component {
 
       if(response.data.status_code === 204){
         swal('User not found, kindly use a registered username');
+        localStorage.removeItem('loggedIn')
         }
       else{
         
@@ -61,7 +62,9 @@ class LoginContent extends Component {
   .catch(error => {
     if(error.response.status === 401){
       const message = error.response.data.Error
+      localStorage.removeItem('loggedIn')
       swal("Error!!", message, "error");
+      
       }
 
   });
