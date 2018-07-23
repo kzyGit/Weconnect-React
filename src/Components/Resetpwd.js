@@ -5,8 +5,7 @@ import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
 import PropTypes from 'prop-types'
-// import { browserHistory } from 'react-router';
-
+import { browserHistory } from 'react-router';
 
 class EditPassword extends Component {
 
@@ -25,14 +24,15 @@ class EditPassword extends Component {
         const new_password = e.target.elements.new_pwd.value;
         const confirm_password = e.target.elements.confirm_pwd.value;
 
-        axios.put(`${Base_url}/auth/reset_password`, config, {
+        axios.put(`${Base_url}/auth/reset_password`, {
             new_password: new_password,
             confirm_password: confirm_password
-        }).then(response => {
+        }, config).then(response => {
+            browserHistory.push('/login')
 
             swal({
                 title: "Success!",
-                text: response.data.Success,
+                text: response.data.Success + ", you can now login with your new password",
                 icon: "success",
                 button: "OK",
             });
