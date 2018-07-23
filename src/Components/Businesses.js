@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import {Link} from 'react-router';
 import axios from 'axios'
@@ -39,7 +39,7 @@ onChangePage(pageOfItems) {
 
 
   componentDidMount() {
-    axios.get('https://weconnectapi-v2.herokuapp.com/api/v1/businesses').then(response => {
+    axios.get(`${Base_url}/businesses`).then(response => {
       this.setState({ businesses: response.data});
     }).catch(error => {
       if (error.response.data.status_code === 204){
@@ -57,7 +57,7 @@ onChangePage(pageOfItems) {
     
     const name = e.target.elements.searchname.value;
   
-    axios.get(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses?q=${name}`).then(res => {
+    axios.get(`${Base_url}/businesses?q=${name}`).then(res => {
       if(res.data.status_code === 204){
         swal('Sorry, no business found');
         }
@@ -73,7 +73,7 @@ onChangePage(pageOfItems) {
     const category = e.target.elements.searchcategory.value;
     const location = e.target.elements.searchlocation.value;
   
-    axios.get(`https://weconnectapi-v2.herokuapp.com/api/v1/businesses?category=${category}&location=${location}`).then(resp => {
+    axios.get(`${Base_url}/businesses?category=${category}&location=${location}`).then(resp => {
       
       if(resp.data.status_code === 204){
         swal('Sorry, no business found');
@@ -183,3 +183,4 @@ onChangePage(pageOfItems) {
 
 
 export default Businesses;
+export { HomeContent }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, {Base_url} from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
@@ -24,27 +24,22 @@ class EditPasswordBody extends Component {
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to edit password', "error");
       browserHistory.push('/login')
-    }
-    else {}} 
+    }} 
   state = {
       businesses : []
     };
 
   render(){
     return(
-      <div className="businesscontent">
-      <div className = "row">
-        
-        <h3 style={{paddingLeft:'20px',color:'break'}}>Edit my password</h3><br />
 
-        <div className="col-md-1" ></div>
-        <div className="col-md-10" >
-          <FormContent editpass={this.editpass}/>
-        </div>
-        <div className = "col-md-1"></div>
-  
-        </div>
+      <div className="row">
+      <div className="col-md-3"></div>
+      <div className="col-md-6" id="businesscontent">
+        <h3 style={{paddingLeft:'20px',color:'break'}}>Edit my password</h3><br />
+        <FormContent editpass={this.editpass}/>
       </div>
+      <div className="col-md-3"></div>
+    </div>
     );
   }
 }
@@ -94,7 +89,7 @@ class FormContent extends Component {
       headers: {'Authorization': "bearer " + access_token}
     }
 
-    axios.put('https://weconnectapi-v2.herokuapp.com/api/v1/auth/update_password', {
+    axios.put(`${Base_url}/auth/update_password`, {
       email: email,
       current_password: current_password,
       new_password: new_password,
@@ -105,7 +100,7 @@ class FormContent extends Component {
       // sweet alert pop up
       swal({
           title: "Success!",
-          text: "Password Updated successfully",
+          text: response.data.Success,
           icon: "success",
           button: "OK",
         });

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../Styles/App.css';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
-export const Header = (props) => {
+class Header extends Component {
+  render() {
 
   let sty = { color: '#eee' }
   let sty2 = { color: '#eee', backgroundColor: 'rgb(54, 54, 129' }
@@ -37,9 +38,9 @@ export const Header = (props) => {
               <ul className="dropdown-menu" style={{ backgroundColor:'#ddd'}}>
               <li><Link to="/addbusiness" style={droplink}><span  style={{paddingRight:'10px'}}  className="glyphicon glyphicon-plus-sign"></span> Add Business</Link></li>
               <li><Link to="/dashboard" style={droplink}><span  style={{paddingRight:'10px'}} className="glyphicon glyphicon-cog"></span> Dashboard</Link></li>
-                <li><Link to="/logout"  style={droplink}><span  style={{paddingRight:'10px'}} className="glyphicon glyphicon-log-out"></span> Logout</Link></li>
+              <li><Link to={'/editPassword'}><span style={{ paddingRight: '15px' }} className="glyphicon glyphicon-edit"></span>Edit password</Link></li>
+              <li><Link to={'/logout'} ><span  style={{paddingRight:'10px'}} className="glyphicon glyphicon-log-out"></span> Logout</Link></li>
               </ul>
-              
               </li>}
               { !localStorage.loggedIn && <li><Link to="/login" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-log-in"></span> Login</Link></li> }
               { !localStorage.loggedIn && <li><Link to="/signup" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>}
@@ -52,5 +53,8 @@ export const Header = (props) => {
     </div>
   );
 }
+}
+
+export const Base_url = 'https://weconnectapi-v2.herokuapp.com/api/v1';
 
 export default Header;
