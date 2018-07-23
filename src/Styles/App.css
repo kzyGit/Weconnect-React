@@ -1,0 +1,186 @@
+body{
+  background-color: rgb(54, 54, 129);
+  color:white;
+  border:0;
+  font-size: 15px;
+}
+#btitle {font-weight: bold;}
+.onebusinesscontent {
+  background-color:#eee !important;
+   color: black;
+   border-radius:5px;
+   margin:auto !important;
+   padding: 15px;
+   width: 70%;
+   margin: auto;
+   margin-top:1% !important;
+}
+
+#textarea {
+  width: 88%;
+  margin: auto !important;
+  display: block;
+  border: 1px solid grey;
+  border-radius: 5px;
+  position: absolute;
+}
+#logoutname {
+  padding: 0px 5px 0px 8px;
+}
+
+#droplink {
+  padding: 5px 0px 0px 5px !important;
+  color:black !important
+}
+.content {
+  background-color:#eee !important;
+   color: black;
+   border-radius:5px;
+   margin:auto !important;
+   padding: 15px;
+   width: 70%;
+   margin: auto;
+   margin-top:5% !important;
+}
+.footer {
+  width:90%;
+  text-align: right;
+  margin-top: 5%;
+}
+table {
+  border: 1px solid #ddd;
+}
+tr {
+  border-bottom: 1px solid #ddd;
+}
+th{
+  background-color: #ddd;
+}
+
+#review {
+  border: 1px solid #ddd;
+  border-radius:5px;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 2px 4px #ddd;
+}
+#filter {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height:32px;
+  width:150px !important
+}
+#reviewform {
+  border:1px solid #ddd;
+  padding-left:20px;
+  background-color: white;
+  border-radius:5px;
+  box-shadow: 2px 4px #ddd;
+}
+#reviewer {
+  float:right;
+  color:maroon
+}
+td, th {padding:15px !important;}
+#businesscontent {
+  background-color:#eee !important;
+   color: black;
+   border-radius:5px;
+   margin:auto !important;
+   padding: 0px 45px 45px 45px;
+   margin: auto;
+}
+.signupcontent {
+  background-color:#eee !important;
+   color: black;
+   border-radius:5px;
+   margin:auto !important;
+   padding: 15px;
+   width: 40%;
+   margin: auto;
+   margin-top:8% !important;
+}
+#loadpage {
+  margin-top:10%;
+  width:150px;
+  height:100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:5px
+ }
+
+#Homebutton {
+  padding: 20px;
+}
+.field {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  height: 35px;
+  float: right;
+  width: 60%;
+  padding-left: 10px
+}
+
+label {
+  font-weight: normal;
+}
+.search {
+  float:right;
+  padding-right: 3%;
+}
+
+#name-row {
+  width:50px;}
+
+#row {
+  width:25px;}
+
+#search {
+  border-radius:3px;
+  height: 30px;
+  padding: 4px;
+  border: 1px solid #ddd}
+
+#search-icon {
+  border-radius:2px;
+  height: 30px;
+  padding-top: 2px;
+  border: 1px solid grey}
+
+#filter {
+  width:130px;
+  float:right;}
+
+#root{
+  padding:1%;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
