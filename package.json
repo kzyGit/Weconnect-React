@@ -2,8 +2,18 @@
   "name": "weconnect",
   "version": "0.1.0",
   "private": true,
+
+  "engines": {
+    "npm": "5.6.0",
+    "node": "8.11.2"
+  },
+
   "dependencies": {
     "axios": "^0.18.0",
+    "babel-jest": "^23.4.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^23.4.1",
     "jw-react-pagination": "^1.0.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -21,7 +31,10 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.1.0",
-    "eslint-loader": "^2.0.0"
+    "eslint-loader": "^2.0.0",
+    "react-test-renderer": "^16.4.1"
   }
 }
