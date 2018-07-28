@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
-// import { browserHistory } from 'react-router';
 
 class EditPassword extends Component {
     render() {
@@ -48,11 +47,8 @@ class Request extends Component {
                 <div className="form-group">
                     <label>Email:</label>
                     <input type="email" className="field" name='email' />
-
-                </div>
-                <br />
-                <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Send Request</button></a>
-                <br />
+                </div><br />
+                <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Send Request</button></a><br />
             </form>
         );
     }
@@ -61,7 +57,7 @@ class Request extends Component {
         e.preventDefault()
         const email = e.target.elements.email.value;
 
-        axios.post('https://weconnectapi-v2.herokuapp.com/api/v1/auth/reset_password', {
+        axios.post(`${Base_url}/auth/reset_password`, {
             email: email
         }).then(response => {
 
