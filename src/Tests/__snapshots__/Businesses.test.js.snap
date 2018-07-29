@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Businesses component renders properly 1`] = `
+<div
+  className="row"
+>
+  <Header />
+  <HomeContent />
+  <Footer />
+</div>
+`;
