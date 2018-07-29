@@ -7,18 +7,6 @@ import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
 class Signup extends Component {
-  render() {
-    return (
-      <div className="row">
-        <Header />
-        <SignupContent />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-class SignupContent extends Component {
 
   signUp = (e) => {
     e.preventDefault()
@@ -59,34 +47,43 @@ class SignupContent extends Component {
   }
   render() {
     return (
-      <div className="signupcontent">
-        <div className="row">
-          <h3 style={{ paddingLeft: '20px', color: 'break' }}>Signup</h3><br />
-          <div className="col-md-1" ></div>
-          <div className="col-md-10" >
+      <div className="row">
+        <Header />
 
-            <form onSubmit={this.signUp}>
-              <div className="form-group">
-                <label>Username:</label><input type="text" className="field" name="username" required />
+        <div className="signupcontent">
+          <div className="row">
+            <h3 style={{ paddingLeft: '20px', color: 'break' }}>Signup</h3><br />
+            <div className="col-md-1" ></div>
+            <div className="col-md-10" >
 
-              </div><br />
-              <div className="form-group">
-                <label>Email:</label>
-                <input type="email" className="field" name='email' required />
-              </div><br />
-              <div className="form-group">
-                <label>Password:</label>
-                <input type="password" className="field" name='password' required />
-              </div><br />
-              <div className="form-group">
-                <label>Confirm pwd:</label>
-                <input type="password" className="field" name='confirm_password' />
-              </div><br />
-              <a href="index.html" style={{ float: 'right' }}><button type="submit" className="btn btn-default">Submit</button></a>
-            </form>
+              <form onSubmit={this.signUp}>
+                <div className="form-group">
+                  <label>Username:</label><input type="text" className="field" name="username" required />
+                </div><br />
+
+                <div className="form-group">
+                  <label>Email:</label>
+                  <input type="email" className="field" name='email' required />
+                </div><br />
+
+                <div className="form-group">
+                  <label>Password:</label>
+                  <input type="password" className="field" name='password' required />
+                </div><br />
+
+                <div className="form-group">
+                  <label>Confirm pwd:</label>
+                  <input type="password" className="field" name='confirm_password' />
+                </div><br />
+
+                <a href="index.html" style={{ float: 'right' }}><button type="submit" className="btn btn-default">Submit</button></a>
+              </form>
+            </div>
+            <div className="col-md-1"></div>
           </div>
-          <div className="col-md-1"></div>
         </div>
+        <Footer />
+        
       </div>
     );
   }
