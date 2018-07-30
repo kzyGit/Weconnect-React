@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component renders properly 1`] = `
+<div>
+  <Header />
+  <div
+    className="signupcontent"
+  >
+    <div
+      className="row"
+    >
+      <h3
+        style={
+          Object {
+            "color": "break",
+            "paddingLeft": "20px",
+          }
+        }
+      >
+        Login
+      </h3>
+      <br />
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="col-md-10"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <label>
+              Username:
+            </label>
+            <input
+              className="field"
+              name="username"
+              type="text"
+            />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label>
+              Password:
+            </label>
+            <input
+              className="field"
+              name="password"
+              type="password"
+            />
+          </div>
+          <br />
+          <button
+            className="btn btn-default"
+            style={
+              Object {
+                "float": "right",
+              }
+            }
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <br />
+      <br />
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/resetpassword"
+      >
+        <span
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          Forgot password?
+        </span>
+      </Link>
+      <Link
+        onlyActiveOnIndex={false}
+        style={Object {}}
+        to="/signup"
+      >
+        <span
+          style={
+            Object {
+              "paddingLeft": "15%",
+            }
+          }
+        >
+          No account? Signup
+        </span>
+      </Link>
+      <div
+        className="col-md-1"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Logout component renders properly 1`] = `
+<div
+  className="row"
+>
+  <Header />
+  <LogoutContent />
+  <Footer />
+</div>
+`;
+
+exports[`Signup component renders properly 1`] = `
+<div
+  className="row"
+>
+  <Header />
+  <div
+    className="signupcontent"
+  >
+    <div
+      className="row"
+    >
+      <h3
+        style={
+          Object {
+            "color": "break",
+            "paddingLeft": "20px",
+          }
+        }
+      >
+        Signup
+      </h3>
+      <br />
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="col-md-10"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <label>
+              Username:
+            </label>
+            <input
+              className="field"
+              name="username"
+              required={true}
+              type="text"
+            />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label>
+              Email:
+            </label>
+            <input
+              className="field"
+              name="email"
+              required={true}
+              type="email"
+            />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label>
+              Password:
+            </label>
+            <input
+              className="field"
+              name="password"
+              required={true}
+              type="password"
+            />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label>
+              Confirm pwd:
+            </label>
+            <input
+              className="field"
+              name="confirm_password"
+              type="password"
+            />
+          </div>
+          <br />
+          <a
+            href="index.html"
+            style={
+              Object {
+                "float": "right",
+              }
+            }
+          >
+            <button
+              className="btn btn-default"
+              type="submit"
+            >
+              Submit
+            </button>
+          </a>
+        </form>
+      </div>
+      <div
+        className="col-md-1"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

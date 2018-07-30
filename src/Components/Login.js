@@ -8,18 +8,6 @@ import {browserHistory} from 'react-router';
 import { Link } from 'react-router';
 
 class Login extends Component {
-  render() {
-    return (
-      <div className="row">
-      <Header />
-      <LoginContent />
-      <Footer />
-      </div>     
-    );
-  }
-}
-
-class LoginContent extends Component {
   state = {
     login:[]
   }
@@ -71,6 +59,8 @@ class LoginContent extends Component {
 }
   render() {
     return (
+      <div>
+      <Header />
       <div className="signupcontent">
         <div className = "row">
           <h3 style={{paddingLeft:'20px',color:'break'}}>Login</h3><br />
@@ -101,6 +91,8 @@ class LoginContent extends Component {
           <div className = "col-md-1"></div>
   
         </div>
+      </div>
+      <Footer />
       </div>
     
           );
