@@ -10,6 +10,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
+  github_token: 672c9a5a655590280193448d87848fc428a2c904
   local_dir: build
   on:
     branch: ch-create-travis-badge
