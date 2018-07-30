@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=ch-create-travis-badge)](https://travis-ci.org/kzyGit/Weconnect-React)
+[![Coverage Status](https://coveralls.io/repos/github/kzyGit/Weconnect-React/badge.svg?branch=ch-create-coveralls-badge)](https://coveralls.io/github/kzyGit/Weconnect-React?branch=ch-create-coveralls-badge)
+
 <h3>WeConnect</h3>
 
 WeConnect is an application that links individuals to businesses. A user is able to view avaiable businesses, view their profiles and reviews and also create an account. An authorised user is able to create a business and manage the businesses by either updating or deleting as well as adding reviews to businesses.<br><br>
