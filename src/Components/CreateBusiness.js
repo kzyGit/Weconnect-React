@@ -7,18 +7,6 @@ import axios from 'axios'
 import { browserHistory } from 'react-router';
 
 class CreateBusiness extends Component {
-  render() {
-    return (
-      <div className="row">
-        <Header />
-        <CreateBusinessBody />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-class CreateBusinessBody extends Component {
 
   state = {
     businesses: []
@@ -34,22 +22,12 @@ class CreateBusinessBody extends Component {
   render() {
     return (
       <div className="row">
+      <Header />
         <div className="col-md-3"></div>
         <div className="col-md-6" id="businesscontent">
           <h3>Create a business</h3><br />
-          <FormContent createBusiness={this.createBusiness} />
-        </div>
-        <div className="col-md-3"></div>
-      </div>
-    );
-  }
-}
-
-class FormContent extends Component {
-
-  render() {
-    return (
-      <form className="create-business-form" onSubmit={this.createBusiness}>
+          
+          <form className="create-business-form" onSubmit={this.createBusiness}>
         <div className="form-group">
           <label>Name:</label>
           <input type="text" className="field" name='business_name' required />
@@ -81,6 +59,11 @@ class FormContent extends Component {
         </div>
         <a style={{ float: 'right', marginTop: '180px' }}><button type="submit" className="btn btn-primary">Create</button></a>
       </form>
+
+        </div>
+        <div className="col-md-3"></div>
+        <Footer />
+      </div>
     );
   }
 
@@ -132,9 +115,4 @@ class FormContent extends Component {
       });
   }
 }
-
 export default CreateBusiness;
-export {
-  CreateBusinessBody,
-  FormContent
-}
