@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import Login from '../Components/Login';
 import Signup from '../Components/Signup';
 import Logout from '../Components/Logout';
+import Resetpassword from '../Components/Resetpassword';
+import Resetpwd from '../Components/Resetpwd';
 import { shallowToJson } from 'enzyme-to-json';
 
 
@@ -98,3 +100,21 @@ describe('Logout component', () => {
     });
 
 });
+
+describe('Resetpassword component', () => {
+
+    const wrapper = shallow(<Resetpassword />);
+
+    it('renders properly', () => {
+        expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+})
+
+describe('Resetpwd component', () => {
+
+    const wrapper = shallow(<Resetpwd />);
+
+    it('renders properly', () => {
+        expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+})
