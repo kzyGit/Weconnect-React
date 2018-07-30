@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=ch-create-travis-badge.png)](https://travis-ci.org/kzyGit/Weconnect-React)
+[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=ch-create-travis-badge)](https://travis-ci.org/kzyGit/Weconnect-React)
 
 <h3>WeConnect</h3>
 
