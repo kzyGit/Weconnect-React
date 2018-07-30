@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=ch-create-travis-badge)](https://travis-ci.org/kzyGit/Weconnect-React)
-
 [![Coverage Status](https://coveralls.io/repos/github/kzyGit/Weconnect-React/badge.svg?branch=ch-create-coveralls-badge)](https://coveralls.io/github/kzyGit/Weconnect-React?branch=ch-create-coveralls-badge)
 
 <h3>WeConnect</h3>
