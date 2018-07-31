@@ -14,6 +14,7 @@ import EditBusiness from './Components/EditBusiness';
 import Resetpassword from './Components/Resetpassword';
 import Resetpwd from './Components/Resetpwd';
 import Dashboard from './Components/Dashboard';
+import ActivateAccount from './Components/ActivateAccount';
 import registerServiceWorker from './registerServiceWorker';
 
 /**
@@ -28,6 +29,7 @@ class App extends React.Component {
                     <Route path={"home"} component={Home} />
                     <Route path={"signup"} component={Signup} />
                     <Route path={"login"} component={Login} />
+                    <Route path={"validateaccount/:username"} component={ActivateAccount} />
                     <Route path={"editPassword"} component={Editpassword} />
                     <Route path={"addbusiness"} component={CreateBusiness} />
                     <Route path={"business/:bid"} component={Business} />
