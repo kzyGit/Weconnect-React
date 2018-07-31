@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, {Base_url} from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import icon from '../Images/businessicon.png';
 import axios from 'axios'
@@ -8,7 +8,9 @@ import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types'
 
-
+/**
+ * This component renders a single business
+ */
 class Business extends Component {
 
   constructor(props) {
@@ -20,11 +22,20 @@ class Business extends Component {
     };
   }
 
+  /**
+   * Function to toggle display of 'Add reviews' button on user logged in or not
+   */
+
   toggleHidden() {
     this.setState({
       isHidden: !this.state.isHidden
     })
   }
+
+  /**
+   * Querries the server to get a single business and its reviews
+   * @returns {object} a single business object and a review object for the business
+   */
   componentDidMount() {
     const bid = this.props.params.bid;
     axios.get(`${Base_url}/businesses/${this.props.params.bid}`).then(response => {
@@ -104,6 +115,10 @@ class Business extends Component {
     );
   }
 
+  /**
+   * Makes api request to add a review for the business
+   * @returns {string} success or error message
+   */
   addreview = (e) => {
     e.preventDefault();
 

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login component renders properly 1`] = `
-<div>
+<div
+  className="row"
+>
   <Header />
   <div
     className="signupcontent"
@@ -109,12 +111,125 @@ exports[`Login component renders properly 1`] = `
 </div>
 `;
 
-exports[`Logout component renders properly 1`] = `
+exports[`Resetpassword component renders properly 1`] = `
 <div
   className="row"
 >
   <Header />
-  <LogoutContent />
+  <div
+    className="signupcontent"
+  >
+    <div
+      className="row"
+    >
+      <h3
+        style={
+          Object {
+            "color": "break",
+            "paddingLeft": "20px",
+          }
+        }
+      >
+        Request Password Reset:
+      </h3>
+      <br />
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="col-md-10"
+      >
+        <Request />
+      </div>
+      <div
+        className="col-md-1"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Resetpwd component renders properly 1`] = `
+<div
+  className="row"
+>
+  <Header />
+  <div
+    className="signupcontent"
+  >
+    <div
+      className="row"
+    >
+      <h3
+        style={
+          Object {
+            "color": "break",
+            "paddingLeft": "20px",
+          }
+        }
+      >
+        Reset Password:
+      </h3>
+      <br />
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="col-md-10"
+      >
+        <form
+          className="reset-pwd-form"
+          onSubmit={[Function]}
+        >
+          <div
+            className="form-group"
+          >
+            <label>
+              New Password:
+            </label>
+            <input
+              className="field"
+              name="new_pwd"
+              type="password"
+            />
+          </div>
+          <br />
+          <div
+            className="form-group"
+          >
+            <label>
+              Confirm Password:
+            </label>
+            <input
+              className="field"
+              name="confirm_pwd"
+              type="password"
+            />
+          </div>
+          <br />
+          <a
+            style={
+              Object {
+                "float": "right",
+              }
+            }
+          >
+            <button
+              className="btn btn-primary"
+              type="submit"
+            >
+              Reset
+            </button>
+          </a>
+          <br />
+        </form>
+      </div>
+      <div
+        className="col-md-1"
+      />
+    </div>
+  </div>
   <Footer />
 </div>
 `;

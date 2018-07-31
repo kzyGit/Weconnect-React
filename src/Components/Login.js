@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header,{Base_url} from './Header';
+import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import axios from 'axios';
 import swal from 'sweetalert';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 
+/**
+ * Login component
+ */
 class Login extends Component {
-  state = {
-    login:[]
-  }
- 
+
+  /**
+   * Makes a server responce to validate user and allow login
+   */
   login = (e) => {
     e.preventDefault();
     const username = e.target.elements.username.value;
@@ -23,80 +26,70 @@ class Login extends Component {
       password: password
     }).then(response => {
 
-      if(response.data.status_code === 204){
+      if (response.data.status_code === 204) {
         swal('User not found, kindly use a registered username');
         localStorage.removeItem('loggedIn')
-        }
-      else{
-        
-      const access_token = response.data.access_token
-      const username = response.data.username
-      const email = response.data.email
-      
+      }
 
-      localStorage.setItem('loggedIn', true)
+      else {
+        const access_token = response.data.access_token
+        const username = response.data.username
+        const email = response.data.email
 
-      localStorage.setItem("access_token", access_token)
-      localStorage.setItem("username", username)
-      localStorage.setItem("email", email)
-      browserHistory.push('/dashboard')
-      swal({
+        localStorage.setItem('loggedIn', true)
+        localStorage.setItem("access_token", access_token)
+        localStorage.setItem("username", username)
+        localStorage.setItem("email", email)
+        browserHistory.push('/dashboard')
+        swal({
           title: "Success!",
           text: "You have successfully logged in",
           icon: "success",
           button: "Ok",
         });
-  }})
-  .catch(error => {
-    if(error.response.status === 401){
-      const message = error.response.data.Error
-      localStorage.removeItem('loggedIn')
-      swal("Error!!", message, "error");
-      
       }
-
-  });
-}
+    })
+      .catch(error => {
+        if (error.response.status === 401) {
+          const message = error.response.data.Error
+          localStorage.removeItem('loggedIn')
+          swal("Error!!", message, "error");
+        }
+      });
+  }
   render() {
     return (
-      <div>
-      <Header />
-      <div className="signupcontent">
-        <div className = "row">
-          <h3 style={{paddingLeft:'20px',color:'break'}}>Login</h3><br />
-          <div className="col-md-1" ></div>
-          <div className="col-md-10" >
-            
-            <form onSubmit={this.login}>
-              <div className="form-group">
-                <label>Username:</label><input type="text" name='username' className="field" />
-                
-              </div><br />
-              <div className="form-group">
-                <label >Password:</label>
-                <input type="password" className="field" name='password'/>
-              </div><br />
-              <button style={{float:'right'}} type="submit" className="btn btn-default">Submit</button>
-          </form>
-              
-  
+      <div className="row">
+        <Header />
+        <div className="signupcontent">
+          <div className="row">
+            <h3 style={{ paddingLeft: '20px', color: 'break' }}>Login</h3><br />
+            <div className="col-md-1" ></div>
+            <div className="col-md-10" >
+
+              <form onSubmit={this.login}>
+                <div className="form-group">
+                  <label>Username:</label><input type="text" name='username' className="field" />
+
+                </div><br />
+                <div className="form-group">
+                  <label >Password:</label>
+                  <input type="password" className="field" name='password' />
+                </div><br />
+                <button style={{ float: 'right' }} type="submit" className="btn btn-default">Submit</button>
+              </form>
+            </div><br /><br />
+
+            <Link to={'/resetpassword'}><span style={{ textAlign: 'center' }}>Forgot password?</span></Link>
+            <Link to={'/signup'}><span style={{ paddingLeft: '15%' }}>No account? Signup</span></Link>
+
+            <div className="col-md-1"></div>
           </div>
-
-          <br /><br />
-          <Link to={'/resetpassword'}><span style={{ textAlign:'center'}}>Forgot password?</span></Link>
-
-          <Link to={'/signup'}><span style={{ paddingLeft:'15%'}}>No account? Signup</span></Link>
-
-
-          <div className = "col-md-1"></div>
-  
         </div>
+        <Footer />
       </div>
-      <Footer />
-      </div>
-    
-          );
-        }
-      }
+    );
+  }
+}
 
 export default Login;

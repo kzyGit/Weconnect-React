@@ -8,7 +8,6 @@ exports[`Home component renders properly 1`] = `
   <div
     className="content"
   >
-    <br />
     <div
       style={
         Object {
