@@ -4,6 +4,7 @@ import Header, { Base_url } from './Header';
 import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
+import { browserHistory } from 'react-router';
 
 /**
  * Component that enables a user to request for password reset
@@ -57,6 +58,7 @@ class Request extends Component {
                 swal("Error!!", "Unrecognised email, kindly ensure to use the email you registered with", "error");
             }
             else {
+                browserHistory.push('/login')
                 swal({
                     title: "Success!",
                     text: "Kindly check your email for a token to reset your password",

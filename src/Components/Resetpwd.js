@@ -7,18 +7,22 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 import { browserHistory } from 'react-router';
 
+/**
+ * Component to enable a user edit password
+ * Accessed from a url received on user email
+ */
 class EditPassword extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-        };
-    }
-
+    /**
+     * Redirect to '/resetPwd' to clear long token url
+     */
     componentDidMount() {
         browserHistory.push('/resetPwd')
     }
 
+    /**
+     * Make a server request to send a reset password link to email
+     */
     requestResetPass = (e) => {
         e.preventDefault()
 
