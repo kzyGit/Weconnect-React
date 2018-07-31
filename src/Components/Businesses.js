@@ -30,7 +30,7 @@ class Businesses extends Component {
     axios.get(`${Base_url}/businesses`).then(response => {
       this.setState({ businesses: response.data });
     }).catch(error => {
-      if (error.response.data.status_code === 204) {
+      if (error.response.status === 404) {
         const message = error.response.data.Error
         swal("message!!", message, "error");
       }

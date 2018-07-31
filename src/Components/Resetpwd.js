@@ -91,6 +91,6 @@ class EditPassword extends Component {
 }
 
 EditPassword.propTypes = {
-    params: PropTypes.object.isRequired
+    params: PropTypes.object
 }
 export default EditPassword;
