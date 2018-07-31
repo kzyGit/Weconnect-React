@@ -59,7 +59,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="row">
         <Header />
         <div className="signupcontent">
           <div className="row">
