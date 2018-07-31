@@ -89,12 +89,3 @@ describe('Resetpassword component', () => {
     });
 })
 
-
-describe('Resetpwd component', () => {
-
-    const wrapper = shallow(<Resetpwd />);
-
-    it('renders properly', () => {
-        expect(shallowToJson(wrapper)).toMatchSnapshot();
-    });
-})
