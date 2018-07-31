@@ -36,6 +36,7 @@ class App extends React.Component {
                     <Route path={"dashboard"} component={Dashboard} />
                     <Route path={"resetPassword"} component={Resetpassword} />
                     <Route path={"resetPwd/:token"} component={Resetpwd} />
+                    <Route path={"resetPwd"} component={Resetpwd} />
                 </Route>
             </Router>
         );

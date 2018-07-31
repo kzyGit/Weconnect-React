@@ -14,10 +14,16 @@ import { browserHistory } from 'react-router';
 class EditPassword extends Component {
 
     /**
-     * Redirect to '/resetPwd' to clear long token url
+     * Save reset token and redirect to '/resetPwd' to clear long token url
      */
     componentDidMount() {
+        const auth_token = this.props.params.token;
+        localStorage.setItem('resettoken', auth_token)
         browserHistory.push('/resetPwd')
+
+        if (localStorage.resettoken === 'undefined'){
+            browserHistory.push('/resetPassword')
+        }
     }
 
     /**
@@ -26,9 +32,9 @@ class EditPassword extends Component {
     requestResetPass = (e) => {
         e.preventDefault()
 
-        const auth_token = this.props.params.token;
+        const auth_token = localStorage.getItem("resettoken")
         const config = { headers: { 'Authorization': "bearer " + auth_token } }
-
+        
         const new_password = e.target.elements.new_pwd.value;
         const confirm_password = e.target.elements.confirm_pwd.value;
 
@@ -37,6 +43,7 @@ class EditPassword extends Component {
             confirm_password: confirm_password
         }, config).then(response => {
             browserHistory.push('/login')
+            localStorage.removeItem("resettoken")
 
             swal({
                 title: "Success!",
@@ -51,7 +58,8 @@ class EditPassword extends Component {
                 swal("Error!!", error.response.data.Error, "error");
             }
             else if (error.response.status === 401) {
-                swal("Error!!", error.response.data.Error, "error");
+                browserHistory.push('/resetPassword')
+                swal("Error!!", "Invalid request, kindly request for password reset to get a valid token", "error");
             }
         });
     }
