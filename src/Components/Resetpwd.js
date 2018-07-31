@@ -15,6 +15,10 @@ class EditPassword extends Component {
         };
     }
 
+    componentDidMount() {
+        browserHistory.push('/resetPwd')
+    }
+
     requestResetPass = (e) => {
         e.preventDefault()
 

@@ -7,6 +7,9 @@ import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types'
 
+/**
+ * Component that updates a business
+ */
 class EditBusiness extends Component {
 
   constructor(props) {
@@ -23,6 +26,10 @@ class EditBusiness extends Component {
     this.editBusiness = this.editBusiness.bind(this)
   }
 
+  /**
+   * Make server request to get the business of the given id
+   * @returns {object} a business
+   */
   componentDidMount() {
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to update a business', "error");
@@ -52,11 +59,13 @@ class EditBusiness extends Component {
           localStorage.removeItem('loggedIn')
           browserHistory.push('/login')
         }
-
       });
     }
   }
 
+  /**
+   * Make server request to update the business of the given id
+   */
   editBusiness = (e) => {
     e.preventDefault()
     const { name, location, about, category } = this.state
@@ -65,17 +74,14 @@ class EditBusiness extends Component {
       headers: { 'Authorization': "bearer " + access_token }
     }
     const bid = this.props.params.bid;
-
     axios.put(`${Base_url}/businesses/${bid}`, {
-
       business_name: name,
       location: location,
       category: category,
       about: about
 
     }, config).then(response => {
-      browserHistory.push('/businesses')
-      // sweet alert pop up
+      browserHistory.push('/dashboard')
       swal({
         title: "Success!",
         text: response.data.Success,
@@ -84,11 +90,9 @@ class EditBusiness extends Component {
       });
     })
       .catch(error => {
-
         if (error.response.status === 409) {
           swal("Error!!", error.response.data.Error, "error");
         }
-
         else if (error.response.status === 401) {
           swal("Error!!", error.response.data.Error, "error");
           localStorage.removeItem('loggedIn')
@@ -98,9 +102,11 @@ class EditBusiness extends Component {
           swal("Error!!", error.response.data.Error, "error");
         }
       });
-
   }
 
+  /**
+   * update local state with new page of items
+   */
   changelog(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -108,13 +114,13 @@ class EditBusiness extends Component {
   }
   render() {
     return (
-
       <div className="row">
         <Header />
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6" id="businesscontent">
             <h3 style={{ paddingLeft: '20px', color: 'break' }}>Edit my business</h3><br />
+
             <form className="create-business-form" onSubmit={this.editBusiness}>
               <div className="form-group">
                 <label>Name:</label>
@@ -148,9 +154,9 @@ class EditBusiness extends Component {
               </div><br />
               <a style={{ float: 'right', marginTop: '180px' }}><button type="submit" className="btn btn-primary">Update</button></a>
             </form>
+
           </div>
           <div className="col-md-3"></div>
-
         </div>
         <Footer />
       </div>

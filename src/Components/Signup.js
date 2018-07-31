@@ -6,15 +6,19 @@ import axios from 'axios'
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
+/**
+ * Component that enables registering of a new user
+ */
 class Signup extends Component {
 
+  /**
+   * Makes server request to create a new user
+   */
   signUp = (e) => {
     e.preventDefault()
-
     const username = e.target.elements.username.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
-    // eslint-disable-next-line
     const confirm_password = e.target.elements.confirm_password.value;
 
     axios.post(`${Base_url}/auth/register`, {
@@ -25,7 +29,6 @@ class Signup extends Component {
 
     }).then(response => {
       browserHistory.push('/login')
-      // sweet alert pop up
       swal({
         title: "Success!",
         text: response.data.Success,
@@ -34,7 +37,6 @@ class Signup extends Component {
       });
     })
       .catch(error => {
-
         if (error.response.status === 409) {
           const message = error.response.data.Error
           swal("Error!!", message, "error");
@@ -49,7 +51,6 @@ class Signup extends Component {
     return (
       <div className="row">
         <Header />
-
         <div className="signupcontent">
           <div className="row">
             <h3 style={{ paddingLeft: '20px', color: 'break' }}>Signup</h3><br />
@@ -83,7 +84,6 @@ class Signup extends Component {
           </div>
         </div>
         <Footer />
-        
       </div>
     );
   }

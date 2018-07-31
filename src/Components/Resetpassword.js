@@ -5,42 +5,31 @@ import Footer from './Footer';
 import swal from 'sweetalert';
 import axios from 'axios'
 
-class EditPassword extends Component {
+/**
+ * Component that enables a user to request for password reset
+ */
+class ResetPassword extends Component {
     render() {
         return (
             <div className="row">
                 <Header />
-                <EditPasswordBody />
+                <div className="signupcontent">
+                    <div className="row">
+                        <h3 style={{ paddingLeft: '20px', color: 'break' }}>Request Password Reset:</h3><br />
+                        <div className="col-md-1" ></div>
+                        <div className="col-md-10" >
+                            <Request requestResetPass={this.requestResetPass} />
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+                </div>
                 <Footer />
             </div>
         );
     }
 }
 
-class EditPasswordBody extends Component {
-
-    state = {
-        businesses: []
-    };
-
-    render() {
-        return (
-            <div className="signupcontent">
-                <div className="row">
-                    <h3 style={{ paddingLeft: '20px', color: 'break' }}>Request Password Reset:</h3><br />
-                    <div className="col-md-1" ></div>
-                    <div className="col-md-10" >
-                        <Request requestResetPass={this.requestResetPass} />
-                    </div>
-                    <div className="col-md-1"></div>
-                </div>
-            </div>
-        );
-    }
-}
-
 class Request extends Component {
-
     render() {
         return (
             <form className="reset-pwd-form" onSubmit={this.requestResetPass}>
@@ -53,6 +42,9 @@ class Request extends Component {
         );
     }
 
+    /**
+     * Makes server request to validate email and send a reset link to user's email
+     */
     requestResetPass = (e) => {
         e.preventDefault()
         const email = e.target.elements.email.value;
@@ -73,7 +65,6 @@ class Request extends Component {
                 });
             }
         }).catch(error => {
-
             if (error.response.status === 400) {
                 swal("Error!!", error.response.data.Error, "error");
             }
@@ -81,7 +72,7 @@ class Request extends Component {
     }
 }
 
-export default EditPassword;
+export default ResetPassword;
 export {
     Request
 }

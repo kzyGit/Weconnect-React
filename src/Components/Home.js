@@ -4,6 +4,10 @@ import Header from './Header';
 import Footer from './Footer';
 import { Link } from 'react-router';
 
+/**
+ * Home component
+ * Displays welcome message and links to view or create businesses
+ */
 class Home extends Component {
 
   render() {
@@ -11,7 +15,6 @@ class Home extends Component {
       <div className="row">
         <Header />
         <div className="content">
-          <br />
           <div style={{ textAlign: 'center', marginBottom: '12%', marginTop: '12%' }}>
 
             <h3>Resourceful, Reliable, Individuals - Business connect platform. </h3>
