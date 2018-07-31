@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 import PropTypes from 'prop-types'
 
 /**
- * Login component
+ * Component that validates user on signup, when accessed from validation email
  */
 class ActivateAccount extends Component {
 
