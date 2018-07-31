@@ -1,54 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Businesses from '../Components/Businesses';
 import CreateBusiness from '../Components/CreateBusiness';
 import EditBusiness from '../Components/EditBusiness';
-import Business from '../Components/Business';
-import Header from '../Components/Header';
 import Dashboard from '../Components/Dashboard';
 import { shallowToJson } from 'enzyme-to-json';
-import ReactDOM from 'react-dom';
-
-
-describe('Businesses component', () => {
-
-    const wrapper = shallow(<Businesses />);
-
-    it('renders properly', () => {
-        expect(shallowToJson(wrapper)).toMatchSnapshot();
-    });
-
-    it('contains divs', () => {
-        expect(wrapper.find('div')).toHaveLength(1);
-    });
-    it('contains Header', () => {
-        expect(wrapper.find('Header')).toHaveLength(1);
-    });
-    it('contains HomeContent', () => {
-        expect(wrapper.find('HomeContent')).toHaveLength(1);
-    });
-    it('contains Footer', () => {
-        expect(wrapper.find('Footer')).toHaveLength(1);
-    });
-
-
-});
-
-describe('Business component', () => {
-    const localStorageMock = {
-        getItem: jest.fn(),
-        setItem: jest.fn(),
-        clear: jest.fn()
-    };
-    global.localStorage = localStorageMock;
-
-    it('renders properly', () => {
-        const div = document.createElement('Business');
-      ReactDOM.render(<Business />, div);
-      ReactDOM.unmountComponentAtNode(div);
-    });
-
-});
 
 describe('CreateBusinesses component', () => {
     const localStorageMock = {
@@ -66,10 +21,6 @@ describe('CreateBusinesses component', () => {
 
     it('has initial state', () => {
         expect(wrapper.state().businesses).toEqual([]);
-        expect(wrapper.state().name).toEqual('');
-        expect(wrapper.state().location).toEqual('');
-        expect(wrapper.state().category).toEqual('');
-        expect(wrapper.state().about).toEqual('');
     });
 
 });
@@ -127,7 +78,6 @@ describe('EditBusiness component', () => {
         expect(wrapper.find('[name="about"]')).toHaveLength(1);
         expect(wrapper.find('[name="category"]')).toHaveLength(1);
       });
-
-
-
 });
+
+

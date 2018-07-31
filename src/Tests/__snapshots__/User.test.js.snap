@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login component renders properly 1`] = `
-<div>
+<div
+  className="row"
+>
   <Header />
   <div
     className="signupcontent"
@@ -109,22 +111,41 @@ exports[`Login component renders properly 1`] = `
 </div>
 `;
 
-exports[`Logout component renders properly 1`] = `
-<div
-  className="row"
->
-  <Header />
-  <LogoutContent />
-  <Footer />
-</div>
-`;
-
 exports[`Resetpassword component renders properly 1`] = `
 <div
   className="row"
 >
   <Header />
-  <EditPasswordBody />
+  <div
+    className="signupcontent"
+  >
+    <div
+      className="row"
+    >
+      <h3
+        style={
+          Object {
+            "color": "break",
+            "paddingLeft": "20px",
+          }
+        }
+      >
+        Request Password Reset:
+      </h3>
+      <br />
+      <div
+        className="col-md-1"
+      />
+      <div
+        className="col-md-10"
+      >
+        <Request />
+      </div>
+      <div
+        className="col-md-1"
+      />
+    </div>
+  </div>
   <Footer />
 </div>
 `;
