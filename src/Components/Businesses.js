@@ -50,6 +50,7 @@ class Businesses extends Component {
     axios.get(`${Base_url}/businesses?q=${name}`).then(res => {
       if (res.data.status_code === 204) {
         swal('Sorry, no business found');
+        this.search.value = ''
       }
       else {
         this.setState({ businesses: res.data });
@@ -63,6 +64,7 @@ class Businesses extends Component {
    */
   filter = (e) => {
     e.preventDefault();
+    this.search.value = ''
 
     const category = e.target.elements.searchcategory.value;
     const location = e.target.elements.searchlocation.value;
@@ -78,6 +80,17 @@ class Businesses extends Component {
     })
   }
 
+  changename = (e) => {
+    e.preventDefault()
+    this.cat.value = ''
+    this.loc.value = ''
+  }
+
+  changefilter = (e) => {
+    e.preventDefault()
+    this.search.value = ''
+  }
+
   render() {
     return (
       <div className="row">
@@ -87,7 +100,7 @@ class Businesses extends Component {
             <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>Featured Businesses</h3>
             <div className="search">
               <form onSubmit={this.searchByName}>
-                <span><input type="text" id="search" name="searchname" placeholder="Search by name..." /></span>
+                <span><input type="text" onChange={this.changename} ref={(ref) => this.search = ref} id="search" name="searchname" placeholder="Search by name..." /></span>
                 <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
               </form>
             </div> <br /><br />
@@ -97,7 +110,7 @@ class Businesses extends Component {
 
                 <form onSubmit={this.filter}>
                   <span>Category: </span><span>
-                    <select name="searchcategory" id="filter">
+                    <select name="searchcategory" ref={(ref) => this.cat = ref} onChange={this.changefilter} id="filter">
                       <option value="">All</option>
                       <option>Technology</option>
                       <option>Tourism & Hotels</option>
@@ -112,7 +125,7 @@ class Businesses extends Component {
                   <br /><br /><br />
 
                   <span>Location: </span><span>
-                    <input type="text" id="filter" name="searchlocation" /></span> <br /><br /><br />
+                    <input type="text" id="filter" ref={(ref) => this.loc = ref} onChange={this.changefilter} name="searchlocation" /></span> <br /><br /><br />
 
                   <button type="submit" className="btn btn-primary" style={{ float: 'right' }}><span className="glyphicon glyphicon-search"></span> </button>
                 </form>
