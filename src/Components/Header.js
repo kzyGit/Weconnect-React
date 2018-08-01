@@ -3,6 +3,7 @@ import '../Styles/App.css';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
 import swal from 'sweetalert';
+export const Base_url = process.env.REACT_APP_api_url;
 
 /**
  * Header component
@@ -76,6 +77,4 @@ class Header extends Component {
   }
 }
 
-export const Base_url = 'https://weconnectapi-v2.herokuapp.com/api/v1';
-// export const Base_url = 'http://127.0.0.1:5000/api/v1';
 export default Header;
