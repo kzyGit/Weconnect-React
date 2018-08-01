@@ -72,7 +72,7 @@ class FormContent extends Component {
           <label >Confirm Password:</label>
           <input type="password" className="field" name='confirm_password' />
         </div><br /><br />
-        <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Create</button></a>
+        <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Submit</button></a>
       </form>
     );
   }

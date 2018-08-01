@@ -33,7 +33,7 @@ class Signup extends Component {
         title: "Success!",
         text: response.data.Success,
         icon: "success",
-        button: "Log in",
+        button: "Ok",
       });
     })
       .catch(error => {
