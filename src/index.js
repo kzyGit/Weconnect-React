@@ -29,7 +29,7 @@ class App extends React.Component {
                     <Route path={"home"} component={Home} />
                     <Route path={"signup"} component={Signup} />
                     <Route path={"login"} component={Login} />
-                    <Route path={"validateaccount/:username"} component={ActivateAccount} />
+                    <Route path={"validateaccount/:token"} component={ActivateAccount} />
                     <Route path={"editPassword"} component={Editpassword} />
                     <Route path={"addbusiness"} component={CreateBusiness} />
                     <Route path={"business/:bid"} component={Business} />
