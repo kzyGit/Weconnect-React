@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7adfb90db8244fc19624869711ca4b56)](https://app.codacy.com/app/kzyGit/Weconnect-React?utm_source=github.com&utm_medium=referral&utm_content=kzyGit/Weconnect-React&utm_campaign=badger)
+
 <h3>WeConnect</h3>
 
 WeConnect is an application that links individuals to businesses. A user is able to view avaiable businesses, view their profiles and reviews and also create an account. An authorised user is able to create a business and manage the businesses by either updating or deleting as well as adding reviews to businesses.<br><br>
