@@ -10,7 +10,7 @@ import { browserHistory } from 'react-router';
  * Component that enables registering of a new user
  */
 class Signup extends Component {
-
+  
   /**
    * Makes server request to create a new user
    */

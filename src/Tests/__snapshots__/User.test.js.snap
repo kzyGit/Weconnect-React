@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Editpassword component renders properly 1`] = `
+<div
+  className="row"
+>
+  <Header />
+  <EditPasswordBody />
+  <Footer />
+</div>
+`;
+
 exports[`Login component renders properly 1`] = `
 <div
   className="row"
@@ -227,7 +237,7 @@ exports[`Signup component renders properly 1`] = `
             className="form-group"
           >
             <label>
-              Confirm pwd:
+              Confirm Password:
             </label>
             <input
               className="field"

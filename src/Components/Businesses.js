@@ -29,12 +29,7 @@ class Businesses extends Component {
   componentDidMount() {
     axios.get(`${Base_url}/businesses`).then(response => {
       this.setState({ businesses: response.data });
-    }).catch(error => {
-      if (error.response.status === 404) {
-        const message = error.response.data.Error
-        swal("message!!", message, "error");
-      }
-    });
+    }).catch(error => {});
   }
 
   /**

@@ -1,9 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CreateBusiness from '../Components/CreateBusiness';
 import EditBusiness from '../Components/EditBusiness';
+import Businesses from '../Components/Businesses';
 import Dashboard from '../Components/Dashboard';
 import { shallowToJson } from 'enzyme-to-json';
+import sinon from 'sinon'
+import moxios from 'moxios';
 
 describe('CreateBusinesses component', () => {
     const localStorageMock = {
@@ -12,6 +15,7 @@ describe('CreateBusinesses component', () => {
         clear: jest.fn()
     };
     global.localStorage = localStorageMock;
+
 
     const wrapper = shallow(<CreateBusiness />);
 
@@ -23,6 +27,24 @@ describe('CreateBusinesses component', () => {
         expect(wrapper.state().businesses).toEqual([]);
     });
 
+    it('handles submit', () => {
+        let createBusiness = sinon.spy();
+        let wrapper = mount(<CreateBusiness onSubmit={createBusiness} />)
+        wrapper.find('form').simulate('submit');
+        moxios.wait(() => {
+        });
+    });
+
+});
+
+describe('Businesses component', () => {
+
+    const wrapper = shallow(<Businesses />);
+
+    it('renders properly', () => {
+        expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
 });
 
 describe('Dashboard component', () => {
@@ -31,6 +53,15 @@ describe('Dashboard component', () => {
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+    it('handles delete', () => {
+        let deleteBusiness = sinon.spy();
+        let wrapper = mount(<Dashboard onSubmit={deleteBusiness} />)
+
+
+        wrapper.find('button').simulate('click');
+        moxios.wait(() => {
+        });
     });
 
 });
@@ -78,6 +109,6 @@ describe('EditBusiness component', () => {
         expect(wrapper.find('[name="about"]')).toHaveLength(1);
         expect(wrapper.find('[name="category"]')).toHaveLength(1);
       });
-});
+});   
 
 

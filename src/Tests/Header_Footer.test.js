@@ -6,21 +6,11 @@ import { shallowToJson } from 'enzyme-to-json';
 
 
 describe('Footer component', () => {
-
     const wrapper = shallow(<Footer />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-
-    it('contains a div', () => {
-        expect(wrapper.find('div')).toHaveLength(1);
-    });
-
-    it('contains Link', () => {
-        expect(wrapper.find('Link')).toHaveLength(1);
-    });
-
 });
 
 describe('Header component', () => {
@@ -43,23 +33,5 @@ describe('Header component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-
-    it('contains divs', () => {
-        expect(wrapper.find('div')).toHaveLength(4);
-    });
-
-    it('contains Link', () => {
-        expect(wrapper.find('Link')).toHaveLength(5);
-    });
-    it('contains Buttons', () => {
-        expect(wrapper.find('button')).toHaveLength(1);
-    });
-    it('contains Navigation ', () => {
-        expect(wrapper.find('nav')).toHaveLength(1);
-    });
-    it('contains Lists ', () => {
-        expect(wrapper.find('ul')).toHaveLength(1);
-    });
-
 });
 
