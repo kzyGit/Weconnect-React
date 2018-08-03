@@ -4,6 +4,12 @@ body{
   border:0;
   font-size: 15px;
 }
+#backnav {
+  color:'white';
+  font-size:'22px';
+  cursor: 'pointer';
+  padding-left:'7%'
+}
 #btitle {font-weight: bold;}
 .onebusinesscontent {
   background-color:#eee !important;
@@ -40,7 +46,7 @@ body{
    padding: 15px;
    width: 70%;
    margin: auto;
-   margin-top:5% !important;
+   margin-top:4% !important;
 }
 .footer {
   width:90%;
