@@ -8,9 +8,9 @@ import { browserHistory } from 'react-router';
 class BackNav extends Component {
   render() {
     return (
-        <span className="glyphicon glyphicon-circle-arrow-left" id='backnav' onClick={browserHistory.goBack}>
-        
-        </span>
+      <span className="glyphicon glyphicon-circle-arrow-left" id='backnav'
+        style={{ color: 'white', fontSize: '22px', cursor: 'pointer', paddingLeft: '7%' }} onClick={browserHistory.goBack}>
+      </span>
     );
   }
 }
