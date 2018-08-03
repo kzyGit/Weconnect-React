@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import swal from 'sweetalert';
 import axios from 'axios'
 import { browserHistory } from 'react-router';
@@ -12,9 +11,7 @@ import { browserHistory } from 'react-router';
 class ResetPassword extends Component {
     render() {
         return (
-            <div className="row">
-                <Header />
-                <div className="signupcontent">
+            <div className="signupcontent">
                     <div className="row">
                         <h3 style={{ paddingLeft: '20px', color: 'break' }}>Request Password Reset:</h3><br />
                         <div className="col-md-1" ></div>
@@ -24,8 +21,6 @@ class ResetPassword extends Component {
                         <div className="col-md-1"></div>
                     </div>
                 </div>
-                <Footer />
-            </div>
         );
     }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import swal from 'sweetalert';
 import axios from 'axios'
 import { browserHistory } from 'react-router';
@@ -10,18 +9,7 @@ import { browserHistory } from 'react-router';
  * Component to enable editing password
  */
 class EditPassword extends Component {
-  render() {
-    return (
-      <div className="row">
-        <Header />
-        <EditPasswordBody />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-class EditPasswordBody extends Component {
+  
   /**
    * Display content only when user is authorised. If not, redirect to login
    */

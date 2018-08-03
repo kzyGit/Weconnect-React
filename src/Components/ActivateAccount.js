@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
+import { Base_url } from './Header';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
@@ -36,9 +36,7 @@ class ActivateAccount extends Component {
 
   render() {
     return (
-      <div className="row">
-        <Header />
-      </div>
+      <div></div>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import axios from 'axios'
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
@@ -114,8 +113,6 @@ class EditBusiness extends Component {
   }
   render() {
     return (
-      <div className="row">
-        <Header />
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6" id="businesscontent">
@@ -158,8 +155,6 @@ class EditBusiness extends Component {
           </div>
           <div className="col-md-3"></div>
         </div>
-        <Footer />
-      </div>
     );
   }
 }

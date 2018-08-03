@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import icon from '../Images/businessicon.png';
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -59,8 +58,7 @@ class Business extends Component {
 
   render() {
     return (
-      <div className="row">
-        <Header />
+      
         <div className="onebusinesscontent" style={{ padding: '25px' }}>
           <div style={{ textAlign: 'center' }}>
             <img src={icon} alt="Business Logo" style={{ height: '100px', width: '120px' }} className="img-thumbnail" /><br />
@@ -110,8 +108,6 @@ class Business extends Component {
             </div>
           </div>
         </div>
-        <Footer />
-      </div>
     );
   }
 

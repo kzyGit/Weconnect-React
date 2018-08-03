@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header from './Header';
-import Footer from './Footer';
+
 import { Link } from 'react-router';
 
 /**
@@ -12,8 +11,6 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="row">
-        <Header />
         <div className="content">
           <div style={{ textAlign: 'center', marginBottom: '12%', marginTop: '12%' }}>
 
@@ -24,8 +21,6 @@ class Home extends Component {
             <Link to="/addbusiness" id='Homebutton'><button type="submit" className="btn btn-default">Create Business</button></Link>
           </div>
         </div>
-        <Footer />
-      </div>
     );
   }
 }

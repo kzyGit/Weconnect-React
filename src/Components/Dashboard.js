@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import { Link } from 'react-router';
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -82,8 +81,6 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="row">
-        <Header />
         <div className="content">
           <div className="row">
             <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>My Businesses</h3><br /><br />
@@ -126,8 +123,6 @@ class Dashboard extends Component {
             <div className="col-md-1"></div>
           </div>
         </div>
-        <Footer />
-      </div>
     );
   }
 }

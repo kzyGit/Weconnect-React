@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import swal from 'sweetalert';
 import axios from 'axios'
 import PropTypes from 'prop-types'
@@ -66,8 +65,6 @@ class EditPassword extends Component {
 
     render() {
         return (
-            <div className="row">
-                <Header />
                 <div className="signupcontent">
                     <div className="row">
                         <h3 style={{ paddingLeft: '20px', color: 'break' }}>Reset Password:</h3><br />
@@ -92,8 +89,6 @@ class EditPassword extends Component {
                         <div className="col-md-1"></div>
                     </div>
                 </div>
-                <Footer />
-            </div>
         );
     }
 }

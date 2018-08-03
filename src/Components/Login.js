@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import  { Base_url } from './Header';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
@@ -59,8 +58,6 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="row">
-        <Header />
         <div className="signupcontent">
           <div className="row">
             <h3 style={{ paddingLeft: '20px', color: 'break' }}>Login</h3><br />
@@ -86,8 +83,6 @@ class Login extends Component {
             <div className="col-md-1"></div>
           </div>
         </div>
-        <Footer />
-      </div>
     );
   }
 }
