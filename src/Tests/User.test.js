@@ -4,7 +4,6 @@ import Login from '../Components/Login';
 import Signup from '../Components/Signup';
 import Editpassword from '../Components/Editpassword';
 import Resetpassword from '../Components/Resetpassword';
-import ActivateAccount from '../Components/ActivateAccount';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon'
 import axios from 'axios'
@@ -26,14 +25,6 @@ describe('Login component', () => {
     });
 });
 
-describe('Activate account component', () => {
-
-    const wrapper = shallow(<ActivateAccount />);
-
-    it('renders properly', () => {
-        expect(shallowToJson(wrapper)).toMatchSnapshot();
-    });
-});
 
 describe('Signup component', () => {
 
