@@ -95,7 +95,7 @@ class Businesses extends Component {
           <div className="row">
           <div className="col-sm-8" id='filterspan'>
           
-          <form onSubmit={this.filter}>
+          <form onSubmit={this.filter} id="filterform">
               <span>Category: </span><span>
                 <select name="searchcategory" ref={(ref) => this.cat = ref} onChange={this.changefilter} id="search" >
                   <option value="">All</option>
@@ -111,7 +111,7 @@ class Businesses extends Component {
                 </select></span>
 
               <span style={{ paddingLeft:'20px' }}>Location: </span><span>
-                <input type="text" ref={(ref) => this.loc = ref} onChange={this.changefilter} name="searchlocation" id="search"  /></span>
+                <input type="text" ref={(ref) => this.loc = ref} onChange={this.changefilter} name="searchlocation" id="searchfilter"  /></span>
                 <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
 
               </form>
@@ -119,8 +119,8 @@ class Businesses extends Component {
           <div className="col-sm-1"></div>
           <div className="col-sm-3">
           
-          <form onSubmit={this.searchByName}>
-              <span><input type="text" onChange={this.changename} ref={(ref) => this.search = ref} id="search" name="searchname" placeholder="Search by name..." /></span>
+          <form onSubmit={this.searchByName} id="searchform">
+              <span><input type="text" onChange={this.changename} ref={(ref) => this.search = ref} id="searchname" name="searchname" placeholder="Search by name..." /></span>
               <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
             </form>
             
@@ -162,7 +162,7 @@ class Businesses extends Component {
                 <br /><br />
 
                 <div style={{ float: 'right', textDecoration: 'none' }}>
-                  <JwPagination items={this.state.businesses} pageSize={4} onChangePage={this.onChangePage} />
+                  <JwPagination items={this.state.businesses} pageSize={4} id="pagination" onChangePage={this.onChangePage} />
                 </div>
               </div>
             }

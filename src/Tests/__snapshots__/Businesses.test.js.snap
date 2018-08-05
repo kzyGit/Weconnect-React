@@ -1,35 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BackNav component renders properly 1`] = `
+<span
+  className="glyphicon glyphicon-circle-arrow-left"
+  id="backnav"
+  onClick={[Function]}
+  style={
+    Object {
+      "color": "white",
+      "cursor": "pointer",
+      "fontSize": "22px",
+      "paddingLeft": "7%",
+    }
+  }
+/>
+`;
+
 exports[`Businesses component renders properly 1`] = `
 <div
-  className="row"
+  className="businessescontent"
 >
-  <Header />
   <div
-    className="content"
+    className="row"
   >
+    <h3
+      style={
+        Object {
+          "color": "maroon",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Businesses
+    </h3>
+    <br />
     <div
       className="row"
     >
-      <h3
-        style={
-          Object {
-            "color": "maroon",
-            "paddingLeft": "20px",
-          }
-        }
-      >
-        Featured Businesses
-      </h3>
       <div
-        className="search"
+        className="col-sm-8"
+        id="filterspan"
       >
         <form
+          id="filterform"
+          onSubmit={[Function]}
+        >
+          <span>
+            Category: 
+          </span>
+          <span>
+            <select
+              id="search"
+              name="searchcategory"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                All
+              </option>
+              <option>
+                Technology
+              </option>
+              <option>
+                Tourism & Hotels
+              </option>
+              <option>
+                Health
+              </option>
+              <option>
+                Education
+              </option>
+              <option>
+                Finance & Accounting
+              </option>
+              <option>
+                Farming
+              </option>
+              <option>
+                Ecommerse
+              </option>
+              <option>
+                Real Estate
+              </option>
+              <option>
+                Manufacturing
+              </option>
+            </select>
+          </span>
+          <span
+            style={
+              Object {
+                "paddingLeft": "20px",
+              }
+            }
+          >
+            Location: 
+          </span>
+          <span>
+            <input
+              id="searchfilter"
+              name="searchlocation"
+              onChange={[Function]}
+              type="text"
+            />
+          </span>
+          <span>
+            <button
+              id="search"
+              style={
+                Object {
+                  "paddingRight": "20px",
+                }
+              }
+              type="submit"
+            >
+              <span
+                className="glyphicon glyphicon-search"
+              />
+            </button>
+          </span>
+        </form>
+      </div>
+      <div
+        className="col-sm-1"
+      />
+      <div
+        className="col-sm-3"
+      >
+        <form
+          id="searchform"
           onSubmit={[Function]}
         >
           <span>
             <input
-              id="search"
+              id="searchname"
               name="searchname"
               onChange={[Function]}
               placeholder="Search by name..."
@@ -53,123 +158,20 @@ exports[`Businesses component renders properly 1`] = `
           </span>
         </form>
       </div>
-       
-      <br />
-      <br />
-      <div
-        className="col-md-4"
-      >
-        <div
-          style={
-            Object {
-              "float": "right",
-              "textAlign": "left",
-              "width": "90%",
-            }
-          }
-        >
-          <h4>
-            Filter Businesses By:
-          </h4>
-          <br />
-          <form
-            onSubmit={[Function]}
-          >
-            <span>
-              Category: 
-            </span>
-            <span>
-              <select
-                id="filter"
-                name="searchcategory"
-                onChange={[Function]}
-              >
-                <option
-                  value=""
-                >
-                  All
-                </option>
-                <option>
-                  Technology
-                </option>
-                <option>
-                  Tourism & Hotels
-                </option>
-                <option>
-                  Health
-                </option>
-                <option>
-                  Education
-                </option>
-                <option>
-                  Finance & Accounting
-                </option>
-                <option>
-                  Farming
-                </option>
-                <option>
-                  Ecommerse
-                </option>
-                <option>
-                  Real Estate
-                </option>
-                <option>
-                  Manufacturing
-                </option>
-              </select>
-            </span>
-            <br />
-            <br />
-            <br />
-            <span>
-              Location: 
-            </span>
-            <span>
-              <input
-                id="filter"
-                name="searchlocation"
-                onChange={[Function]}
-                type="text"
-              />
-            </span>
-             
-            <br />
-            <br />
-            <br />
-            <button
-              className="btn btn-primary"
-              style={
-                Object {
-                  "float": "right",
-                }
-              }
-              type="submit"
-            >
-              <span
-                className="glyphicon glyphicon-search"
-              />
-               
-            </button>
-          </form>
-        </div>
-      </div>
-      <div
-        className="col-md-8"
-        style={
-          Object {
-            "paddingLeft": "40px",
-          }
-        }
-      >
-        <img
-          alt=""
-          id="loadpage"
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
-        />
-      </div>
+    </div>
+     
+    <br />
+    <br />
+    <div
+      className="col-md-12"
+    >
+      <img
+        alt=""
+        id="loadpage"
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
+      />
     </div>
   </div>
-  <Footer />
 </div>
 `;
 
@@ -177,7 +179,6 @@ exports[`CreateBusinesses component renders properly 1`] = `
 <div
   className="row"
 >
-  <Header />
   <div
     className="col-md-3"
   />
@@ -297,69 +298,62 @@ exports[`CreateBusinesses component renders properly 1`] = `
   <div
     className="col-md-3"
   />
-  <Footer />
 </div>
 `;
 
 exports[`Dashboard component renders properly 1`] = `
 <div
-  className="row"
+  className="content"
 >
-  <Header />
   <div
-    className="content"
+    className="row"
   >
-    <div
-      className="row"
+    <h3
+      style={
+        Object {
+          "color": "maroon",
+          "paddingLeft": "20px",
+        }
+      }
     >
-      <h3
+      My Businesses
+    </h3>
+    <br />
+    <br />
+    <div
+      className="col-md-1"
+    />
+    <div
+      className="col-md-10"
+    >
+      <span
+        id="rev"
+      />
+      <br />
+      Let your businesses join the WeConnect network
+      <Link
+        onlyActiveOnIndex={false}
         style={
           Object {
-            "color": "maroon",
-            "paddingLeft": "20px",
+            "paddingLeft": "30px",
+            "textDecoration": "none",
           }
         }
-      >
-        My Businesses
-      </h3>
-      <br />
-      <br />
-      <div
-        className="col-md-1"
-      />
-      <div
-        className="col-md-10"
+        to="/addbusiness"
       >
         <span
-          id="rev"
+          className="glyphicon glyphicon-hand-right"
         />
-        <br />
-        Let your businesses join the WeConnect network
-        <Link
-          onlyActiveOnIndex={false}
-          style={
-            Object {
-              "paddingLeft": "30px",
-              "textDecoration": "none",
-            }
-          }
-          to="/addbusiness"
-        >
-          <span
-            className="glyphicon glyphicon-hand-right"
-          />
-           Add Business
-        </Link>
-        <br />
-        <br />
-        <br />
-      </div>
-      <div
-        className="col-md-1"
-      />
+         Add Business
+      </Link>
+      <br />
+      <br />
+      <br />
     </div>
+    <div
+      className="col-md-1"
+    />
   </div>
-  <Footer />
 </div>
 `;
 
@@ -367,146 +361,140 @@ exports[`EditBusiness component renders properly 1`] = `
 <div
   className="row"
 >
-  <Header />
   <div
-    className="row"
+    className="col-md-3"
+  />
+  <div
+    className="col-md-6"
+    id="businesscontent"
   >
-    <div
-      className="col-md-3"
-    />
-    <div
-      className="col-md-6"
-      id="businesscontent"
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
     >
-      <h3
+      Edit my business
+    </h3>
+    <br />
+    <form
+      className="create-business-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label>
+          Name:
+        </label>
+        <input
+          className="field"
+          name="name"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          Location:
+        </label>
+        <input
+          className="field"
+          name="location"
+          onChange={[Function]}
+          required={true}
+          type="text"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          Category:
+        </label>
+        <select
+          className="field"
+          name="category"
+          onChange={[Function]}
+          required={true}
+        >
+          <option />
+          <option>
+            Technology
+          </option>
+          <option>
+            Tourism & Hotels
+          </option>
+          <option>
+            Health
+          </option>
+          <option>
+            Education
+          </option>
+          <option>
+            Finance & Accounting
+          </option>
+          <option>
+            Farming
+          </option>
+          <option>
+            Ecommerse
+          </option>
+          <option>
+            Real Estate
+          </option>
+          <option>
+            Manufacturing
+          </option>
+        </select>
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          About:
+        </label>
+        <br />
+        <br />
+        <textarea
+          id="textarea"
+          name="about"
+          onChange={[Function]}
+          required={true}
+          rows="8"
+          value=""
+        />
+      </div>
+      <br />
+      <a
         style={
           Object {
-            "color": "break",
-            "paddingLeft": "20px",
+            "float": "right",
+            "marginTop": "180px",
           }
         }
       >
-        Edit my business
-      </h3>
-      <br />
-      <form
-        className="create-business-form"
-        onSubmit={[Function]}
-      >
-        <div
-          className="form-group"
+        <button
+          className="btn btn-primary"
+          type="submit"
         >
-          <label>
-            Name:
-          </label>
-          <input
-            className="field"
-            name="name"
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-        </div>
-        <br />
-        <div
-          className="form-group"
-        >
-          <label>
-            Location:
-          </label>
-          <input
-            className="field"
-            name="location"
-            onChange={[Function]}
-            required={true}
-            type="text"
-            value=""
-          />
-        </div>
-        <br />
-        <div
-          className="form-group"
-        >
-          <label>
-            Category:
-          </label>
-          <select
-            className="field"
-            name="category"
-            onChange={[Function]}
-            required={true}
-          >
-            <option />
-            <option>
-              Technology
-            </option>
-            <option>
-              Tourism & Hotels
-            </option>
-            <option>
-              Health
-            </option>
-            <option>
-              Education
-            </option>
-            <option>
-              Finance & Accounting
-            </option>
-            <option>
-              Farming
-            </option>
-            <option>
-              Ecommerse
-            </option>
-            <option>
-              Real Estate
-            </option>
-            <option>
-              Manufacturing
-            </option>
-          </select>
-        </div>
-        <br />
-        <div
-          className="form-group"
-        >
-          <label>
-            About:
-          </label>
-          <br />
-          <br />
-          <textarea
-            id="textarea"
-            name="about"
-            onChange={[Function]}
-            required={true}
-            rows="8"
-            value=""
-          />
-        </div>
-        <br />
-        <a
-          style={
-            Object {
-              "float": "right",
-              "marginTop": "180px",
-            }
-          }
-        >
-          <button
-            className="btn btn-primary"
-            type="submit"
-          >
-            Update
-          </button>
-        </a>
-      </form>
-    </div>
-    <div
-      className="col-md-3"
-    />
+          Update
+        </button>
+      </a>
+    </form>
   </div>
-  <Footer />
+  <div
+    className="col-md-3"
+  />
 </div>
 `;

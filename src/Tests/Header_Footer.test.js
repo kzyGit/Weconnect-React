@@ -2,11 +2,20 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Footer from '../Components/Footer';
 import Header from '../Components/Header';
+import Root from '../Components/Root';
 import { shallowToJson } from 'enzyme-to-json';
 
 
 describe('Footer component', () => {
     const wrapper = shallow(<Footer />);
+
+    it('renders properly', () => {
+        expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+});
+
+describe('Root component', () => {
+    const wrapper = shallow(<Root />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();

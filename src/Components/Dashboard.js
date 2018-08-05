@@ -110,7 +110,7 @@ class Dashboard extends Component {
                             <span className="glyphicon glyphicon-edit"></span> </button>
                           </Link>
                         </td>
-                        <td><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
+                        <td id="deletebusiness"><button className="btn btn-danger"  onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
                       </tr>
                     )}
                   </tbody>

@@ -12,29 +12,21 @@ class ResetPassword extends Component {
     render() {
         return (
             <div className="signupcontent">
-                    <div className="row">
-                        <h3 style={{ paddingLeft: '20px', color: 'break' }}>Request Password Reset:</h3><br />
-                        <div className="col-md-1" ></div>
-                        <div className="col-md-10" >
-                            <Request requestResetPass={this.requestResetPass} />
-                        </div>
-                        <div className="col-md-1"></div>
+                <div className="row">
+                    <h3 style={{ paddingLeft: '20px', color: 'break' }}>Request Password Reset:</h3><br />
+                    <div className="col-md-1" ></div>
+                    <div className="col-md-10" >
+                        <form className="reset-pwd-form" onSubmit={this.requestResetPass}>
+                            <div className="form-group">
+                                <label>Email:</label>
+                                <input type="email" className="field" name='email' />
+                            </div><br />
+                            <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Send Request</button></a><br />
+                        </form>
                     </div>
+                    <div className="col-md-1"></div>
                 </div>
-        );
-    }
-}
-
-class Request extends Component {
-    render() {
-        return (
-            <form className="reset-pwd-form" onSubmit={this.requestResetPass}>
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input type="email" className="field" name='email' />
-                </div><br />
-                <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Send Request</button></a><br />
-            </form>
+            </div>
         );
     }
 
@@ -69,8 +61,4 @@ class Request extends Component {
         });
     }
 }
-
 export default ResetPassword;
-export {
-    Request
-}

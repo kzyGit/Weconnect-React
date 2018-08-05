@@ -9,7 +9,7 @@ import { browserHistory } from 'react-router';
  * Component to enable editing password
  */
 class EditPassword extends Component {
-  
+
   /**
    * Display content only when user is authorised. If not, redirect to login
    */
@@ -19,7 +19,7 @@ class EditPassword extends Component {
       browserHistory.push('/login')
     }
   }
-  
+
   render() {
     return (
 
@@ -27,41 +27,32 @@ class EditPassword extends Component {
         <div className="col-md-3"></div>
         <div className="col-md-6" id="businesscontent">
           <h3 style={{ paddingLeft: '20px', color: 'break' }}>Edit my password</h3><br />
-          <FormContent editpass={this.editpass} />
+
+          <form className="create-business-form" onSubmit={this.editpass}>
+            <div className="form-group">
+              <label>Email:</label>
+              <input type="text" className="field" name='email' />
+
+            </div><br />
+            <div className="form-group">
+              <label>Current Password:</label>
+              <input type="password" className="field" name='current_password' />
+            </div><br />
+            <div className="form-group">
+              <label>New Password:</label>
+              <input type="password" className="field" name='new_password' />
+            </div><br />
+
+            <div className="form-group">
+              <label >Confirm Password:</label>
+              <input type="password" className="field" name='confirm_password' />
+            </div><br /><br />
+            <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Submit</button></a>
+          </form>
+          
         </div>
         <div className="col-md-3"></div>
       </div>
-    );
-  }
-}
-
-/**
- * Edit password form
- */
-class FormContent extends Component {
-  render() {
-    return (
-      <form className="create-business-form" onSubmit={this.editpass}>
-        <div className="form-group">
-          <label>Email:</label>
-          <input type="text" className="field" name='email' />
-
-        </div><br />
-        <div className="form-group">
-          <label>Current Password:</label>
-          <input type="password" className="field" name='current_password' />
-        </div><br />
-        <div className="form-group">
-          <label>New Password:</label>
-          <input type="password" className="field" name='new_password' />
-        </div><br />
-
-        <div className="form-group">
-          <label >Confirm Password:</label>
-          <input type="password" className="field" name='confirm_password' />
-        </div><br /><br />
-        <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Submit</button></a>
-      </form>
     );
   }
 

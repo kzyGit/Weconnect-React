@@ -4,6 +4,9 @@ import Login from '../Components/Login';
 import Signup from '../Components/Signup';
 import Editpassword from '../Components/Editpassword';
 import Resetpassword from '../Components/Resetpassword';
+import Resetpwd from '../Components/Resetpwd';
+import My404Component from '../Components/My404Component';
+// import ActivateAccount from '../Components/ActivateAccount';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon'
 import axios from 'axios'
@@ -23,6 +26,14 @@ describe('Login component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
+
+    // it('handles login', () => {
+    //     let login = sinon.spy();
+    //     let wrapper = mount(<Login onSubmit={login} />)
+    //     wrapper.find('form').simulate('submit');
+    //     moxios.wait(() => {
+    //     });
+    // });
 });
 
 
@@ -48,12 +59,6 @@ describe('Signup component', () => {
         wrapper.find('form').simulate('submit');
         moxios.wait(() => { });
     });
-
-    it('works', () => {
-        let wrapper = shallow(<Signup />);
-        expect(wrapper.find('form')).toHaveLength(1);
-    });
-
 });
 
 describe('Resetpassword component', () => {
@@ -61,10 +66,51 @@ describe('Resetpassword component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
+    // it('handles requestResetPass', () => {
+    //     let requestResetPass = sinon.spy();
+    //     let wrapper = mount(<Resetpassword onSubmit={requestResetPass} />)
+    //     wrapper.find('form').simulate('submit');
+    //     moxios.wait(() => { });
+    // });
 })
+
+// describe('Resetwd component', () => {
+//     const wrapper = shallow(<Resetpwd />);
+//     xit('renders properly', () => {
+//         expect(shallowToJson(wrapper)).toMatchSnapshot();
+//     });
+//     xit('handles requestResetPass', () => {
+//         let requestResetPass = sinon.spy();
+//         let wrapper = mount(<Resetpassword onSubmit={requestResetPass} />)
+//         wrapper.find('form').simulate('submit');
+//         moxios.wait(() => { });
+//     });
+// })
 
 describe('Editpassword component', () => {
     const wrapper = shallow(<Editpassword />);
+    it('renders properly', () => {
+        expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    // it('handles editpass onsubmit', () => {
+    //     let editpass = sinon.spy();
+    //     let wrapper = mount(<Editpassword onSubmit={editpass} />)
+    //     wrapper.find('form').simulate('submit');
+    //     moxios.wait(() => {
+    //     });
+    // });
+
+})
+// describe('ActivateAccount component', () => {
+//     const wrapper = shallow(<ActivateAccount />);
+//     it('renders properly', () => {
+//         expect(shallowToJson(wrapper)).toMatchSnapshot();
+//     });
+// })
+
+describe('My404Component component', () => {
+    const wrapper = shallow(<My404Component />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });

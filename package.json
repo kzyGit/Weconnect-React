@@ -50,7 +50,8 @@
     "collectCoverageFrom": [
       "src/***",
       "!src/Tests/***",
-      "!src/registerServiceWorker.js"
+      "!src/registerServiceWorker.js",
+      "!src/business.js"
     ]
   }
 }
