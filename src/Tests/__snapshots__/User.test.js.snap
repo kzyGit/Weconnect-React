@@ -139,6 +139,7 @@ exports[`Login component renders properly 1`] = `
           <input
             className="field"
             name="username"
+            required={true}
             type="text"
           />
         </div>
@@ -152,6 +153,7 @@ exports[`Login component renders properly 1`] = `
           <input
             className="field"
             name="password"
+            required={true}
             type="password"
           />
         </div>
@@ -165,7 +167,7 @@ exports[`Login component renders properly 1`] = `
           }
           type="submit"
         >
-          Submit
+          Login
         </button>
       </form>
     </div>
@@ -269,6 +271,7 @@ exports[`Resetpassword component renders properly 1`] = `
             Send Request
           </button>
         </a>
+         
         <br />
       </form>
     </div>

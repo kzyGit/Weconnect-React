@@ -176,7 +176,13 @@ label {
   height: 30px;
   padding: 4px;
   border: 1px solid #ddd}
+#loader {
+  float: right;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
 
+}
 #search-icon {
   border-radius:2px;
   height: 30px;
