@@ -40,12 +40,6 @@ class Login extends Component {
         localStorage.setItem("username", username)
         localStorage.setItem("email", email)
         browserHistory.push('/dashboard')
-        swal({
-          title: "Success!",
-          text: "You have successfully logged in",
-          icon: "success",
-          button: "Ok",
-        });
       }
     })
       .catch(error => {

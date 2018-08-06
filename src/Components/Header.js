@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
-import swal from 'sweetalert';
 export const Base_url = process.env.REACT_APP_api_url;
 
 /**
@@ -21,12 +20,6 @@ class Header extends Component {
       localStorage.removeItem('loggedIn');
       localStorage.removeItem("access_token")
       browserHistory.push('/home')
-      swal({
-        title: "Success!",
-        text: "You have successfully logged out",
-        icon: "success",
-        button: "Ok",
-      });
     }
 
     let sty = { color: '#eee' }
