@@ -69,5 +69,5 @@ class Header extends Component {
     );
   }
 }
-
+export const loader = <span id='loader'>Loading   <i className="fa fa-spinner fa-spin" /></span>
 export default Header;
