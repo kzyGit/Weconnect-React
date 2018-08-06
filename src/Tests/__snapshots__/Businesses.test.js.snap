@@ -237,10 +237,13 @@ exports[`CreateBusinesses component renders properly 1`] = `
             Technology
           </option>
           <option>
-            Tourism & Hotels
+            Health
           </option>
           <option>
-            Health
+            Fashion
+          </option>
+          <option>
+            Tourism & Hotels
           </option>
           <option>
             Education
@@ -432,10 +435,13 @@ exports[`EditBusiness component renders properly 1`] = `
             Technology
           </option>
           <option>
-            Tourism & Hotels
+            Health
           </option>
           <option>
-            Health
+            Fashion
+          </option>
+          <option>
+            Tourism & Hotels
           </option>
           <option>
             Education

@@ -3,12 +3,14 @@ import { shallow, mount } from 'enzyme';
 import CreateBusiness from '../Components/CreateBusiness';
 import EditBusiness from '../Components/EditBusiness';
 import Businesses from '../Components/Businesses';
+import Business from '../Components/Business';
 import Dashboard from '../Components/Dashboard';
 import BackNav from '../Components/BackNav';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon'
 import moxios from 'moxios';
 
+  
 describe('CreateBusinesses component', () => {
     const localStorageMock = {
         getItem: jest.fn(),
@@ -88,18 +90,9 @@ describe('Dashboard component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-    // it('handles delete', () => {
-    //     let deleteBusiness = sinon.spy();
-    //     let wrapper = mount(<Dashboard onClick={deleteBusiness} />)
-    //     wrapper.find('#deletebusiness').simulate('click');
-    //     moxios.wait(() => {
-    //     });
-    // });
-
 });
 
 describe('BackNav component', () => {
-
     const wrapper = shallow(<BackNav />);
 
     it('renders properly', () => {
@@ -108,34 +101,23 @@ describe('BackNav component', () => {
 });
 
 describe('EditBusiness component', () => {
-
     const localStorageMock = {
         getItem: jest.fn(),
         setItem: jest.fn(),
         clear: jest.fn()
     };
     global.localStorage = localStorageMock;
-
     const params = {
         params: {
             id: 1,
         },
     };
-
-    
     const wrapper = shallow(<EditBusiness params={{ params }} />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
     
-    // it('handles onsubmit', () => {
-    //     let editBusiness = sinon.spy();
-    //     let wrapper = mount(<EditBusiness params={{ params }} onSubmit={editBusiness} />)
-    //     wrapper.find('form').simulate('submit');
-    //     moxios.wait(() => {
-    //     });
-    // });
     
     it('has initial state', () => {
         expect(wrapper.state().id).toEqual('');
