@@ -13,11 +13,13 @@ class ActivateAccount extends Component {
 
   componentDidMount() {
     const token = this.props.params.token
+    
     const config = { headers: { 'Authorization': "bearer " + token } }
-    axios.put(`${Base_url}/auth/login`, config).then(response => {
+    axios.put(`${Base_url}/auth/login`, {}, config).then(response => {
 
       if (response.data.Status_code === 401) {
         const message = response.data.Error
+        browserHistory.push('/login')
         swal("Error!!", message, "error");
       }
       else {
@@ -31,13 +33,14 @@ class ActivateAccount extends Component {
         });
       }
     })
+
       .catch(error => {
       });
   }
 
   render() {
     return (
-      <div></div>
+      <div></div >
     );
   }
 }
