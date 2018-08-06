@@ -134,8 +134,9 @@ class EditBusiness extends Component {
                 <select className="field" name='category' onChange={this.changelog} required>
                   <option>{this.state.category}</option>
                   <option>Technology</option>
-                  <option>Tourism & Hotels</option>
                   <option>Health</option>
+                  <option>Fashion</option>
+                  <option>Tourism & Hotels</option>
                   <option>Education</option>
                   <option>Finance & Accounting</option>
                   <option>Farming</option>

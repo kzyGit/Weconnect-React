@@ -126,13 +126,7 @@ class Businesses extends Component {
             
             </div>
 
-          
-
-
-
           </div> <br /><br />
-
-
           <div className="col-md-12">
             {this.state.businesses.length > 0 &&
               <div>
@@ -153,24 +147,19 @@ class Businesses extends Component {
                           <br /><Link to={`/business/${business.id}`} id='businesslink'><button type="submit" className="btn btn-default">Read More</button></Link>
                           <br /><br /></div><br />
                         </div>
-                        
                       )}
-                      
-
                 </div>
 
                 <br /><br />
 
                 <div style={{ float: 'right', textDecoration: 'none' }}>
-                  <JwPagination items={this.state.businesses} pageSize={4} id="pagination" onChangePage={this.onChangePage} />
+                  <JwPagination items={this.state.businesses} pageSize={12} id="pagination" onChangePage={this.onChangePage} />
                 </div>
               </div>
             }
             {this.state.businesses.length === 0 &&
               <img alt='' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" id="loadpage" />
             }
-
-
           </div>
         </div>
       </div>

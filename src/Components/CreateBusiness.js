@@ -47,8 +47,9 @@ class CreateBusiness extends Component {
               <label>Category:</label>
               <select className="field" name='category' required>
                 <option>Technology</option>
-                <option>Tourism & Hotels</option>
                 <option>Health</option>
+                <option>Fashion</option>
+                <option>Tourism & Hotels</option>
                 <option>Education</option>
                 <option>Finance & Accounting</option>
                 <option>Farming</option>

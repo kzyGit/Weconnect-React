@@ -49,7 +49,7 @@ class EditPassword extends Component {
             </div><br /><br />
             <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Submit</button></a>
           </form>
-          
+
         </div>
         <div className="col-md-3"></div>
       </div>
@@ -78,24 +78,25 @@ class EditPassword extends Component {
       confirm_password: confirm_password
 
     }, config).then(response => {
-      browserHistory.push('/dashboard')
-      swal({
-        title: "Success!",
-        text: response.data.Success,
-        icon: "success",
-        button: "OK",
-      });
+      if (response.data.Status_code === 400) {
+        swal("Error!!", response.data.Error, "error");
+      }
+      else if (response.data.Status_code === 401) {
+        swal("Error!!", response.data.Error, "error");
+        localStorage.removeItem('loggedIn')
+        browserHistory.push('/login')
+      }
+      else {
+        browserHistory.push('/dashboard')
+        swal({
+          title: "Success!",
+          text: response.data.Success,
+          icon: "success",
+          button: "OK",
+        });
+      }
     })
-      .catch(error => {
-        if (error.response.status === 400) {
-          swal("Error!!", error.response.data.Error, "error");
-        }
-        else if (error.response.status === 401) {
-          swal("Error!!", error.response.data.Error, "error");
-          localStorage.removeItem('loggedIn')
-          browserHistory.push('/login')
-        }
-      });
+      .catch(error => { });
   }
 }
 

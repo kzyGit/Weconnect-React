@@ -15,23 +15,24 @@ class ActivateAccount extends Component {
     const token = this.props.params.token
     const config = { headers: { 'Authorization': "bearer " + token } }
     axios.put(`${Base_url}/auth/login`, config).then(response => {
-      const message = response.data.Success
-      browserHistory.push('/login')
-      swal({
-        title: "Success!",
-        text: message,
-        icon: "success",
-        button: "Ok",
-      });
-    })
-    .catch(error => {
-      if (error.response.status === 401) {
-        const message = error.response.data.Error
-        browserHistory.push('/login')
+
+      if (response.data.Status_code === 401) {
+        const message = response.data.Error
         swal("Error!!", message, "error");
-        
       }
-    });
+      else {
+        const message = response.data.Success
+        browserHistory.push('/login')
+        swal({
+          title: "Success!",
+          text: message,
+          icon: "success",
+          button: "Ok",
+        });
+      }
+    })
+      .catch(error => {
+      });
   }
 
   render() {
@@ -41,6 +42,6 @@ class ActivateAccount extends Component {
   }
 }
 ActivateAccount.propTypes = {
-  params: PropTypes.object
+  params: PropTypes.object.isRequired
 }
 export default ActivateAccount;

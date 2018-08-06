@@ -81,48 +81,48 @@ class Dashboard extends Component {
 
   render() {
     return (
-        <div className="content">
-          <div className="row">
-            <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>My Businesses</h3><br /><br />
-            <div className="col-md-1"></div>
-            <div className="col-md-10" >
+      <div className="content">
+        <div className="row">
+          <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>My Businesses</h3><br /><br />
+          <div className="col-md-1"></div>
+          <div className="col-md-10" >
 
-              {this.state.businesses.length > 0 &&
-                <table className="table">
-                  <thead>
-                    <tr>
-                      <th id="name-row">Business</th>
-                      <th id="row">Category</th>
-                      <th id="row">Location</th>
-                      <th id="row">Edit</th>
-                      <th id="row">Delete</th>
+            {this.state.businesses.length > 0 &&
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th id="name-row">Business</th>
+                    <th id="row">Category</th>
+                    <th id="row">Location</th>
+                    <th id="row">Edit</th>
+                    <th id="row">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {this.state.businesses.map(business =>
+                    <tr key={business.id}>
+                      <td><Link to={`/business/${business.id}`} >{business.name}</Link></td>
+                      <td>{business.category}</td>
+                      <td>{business.location}</td>
+                      <td>
+                        <Link to={`/editBusiness/${business.id}`} ><button className="btn btn-primary">
+                          <span className="glyphicon glyphicon-edit"></span> </button>
+                        </Link>
+                      </td>
+                      <td id="deletebusiness"><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
                     </tr>
-                  </thead>
-                  <tbody>
+                  )}
+                </tbody>
+              </table>}
 
-                    {this.state.businesses.map(business =>
-                      <tr key={business.id}>
-                        <td><Link to={`/business/${business.id}`} >{business.name}</Link></td>
-                        <td>{business.category}</td>
-                        <td>{business.location}</td>
-                        <td>
-                          <Link to={`/editBusiness/${business.id}`} ><button className="btn btn-primary">
-                            <span className="glyphicon glyphicon-edit"></span> </button>
-                          </Link>
-                        </td>
-                        <td id="deletebusiness"><button className="btn btn-danger"  onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>}
-
-              <span id='rev'></span><br />
-              Let your businesses join the WeConnect network
+            <span id='rev'></span><br />
+            Let your businesses join the WeConnect network
             <Link to="/addbusiness" style={{ paddingLeft: '30px', textDecoration: 'none' }}><span className="glyphicon glyphicon-hand-right"></span> Add Business</Link><br /><br /><br />
-            </div>
-            <div className="col-md-1"></div>
           </div>
+          <div className="col-md-1"></div>
         </div>
+      </div>
     );
   }
 }
