@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
 import { browserHistory } from 'react-router';
+import swal from 'sweetalert';
 
 /**
  * Component that enables '/' main route to have children routes
  */
 class My404Component extends Component {
     componentDidMount() {
-        alert('Sorry, the page you are trying to access does not exist\n                             Redirect to Homepage');
-        browserHistory.push('/home');
+        swal({
+            title: "Invalid Url!!",
+            text: "Sorry, page does not exist, Redirect Back to valid page",
+            icon: "error",
+            button: "OK",
+        });
+        browserHistory.goBack();
     }
     render() {
         return (
