@@ -96,7 +96,7 @@ class EditPassword extends Component {
         });
       }
     })
-      .catch(error => { });
+      .catch();
   }
 }
 

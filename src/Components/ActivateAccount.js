@@ -32,9 +32,7 @@ class ActivateAccount extends Component {
       }
     })
 
-      .catch(error => {
-        
-      });
+      .catch();
   }
 
   render() {
