@@ -2,81 +2,75 @@
 
 exports[`Home component renders properly 1`] = `
 <div
-  className="row"
+  className="content"
 >
-  <Header />
   <div
-    className="content"
-  >
-    <div
-      style={
-        Object {
-          "marginBottom": "12%",
-          "marginTop": "12%",
-          "textAlign": "center",
-        }
+    style={
+      Object {
+        "marginBottom": "12%",
+        "marginTop": "12%",
+        "textAlign": "center",
       }
-    >
-      <h3>
-        Resourceful, Reliable, Individuals - Business connect platform. 
-      </h3>
-      <h3>
-        You need it, Here you go, 
-        <Link
-          onlyActiveOnIndex={false}
-          style={
-            Object {
-              "textDecoration": "none",
-            }
-          }
-          to="/businesses"
-        >
-          <font
-            style={
-              Object {
-                "color": "rgb(173, 32, 32)",
-                "marginLeft": "15px",
-              }
-            }
-          >
-            <span
-              className="glyphicon glyphicon-hand-right"
-            />
-             Connect *
-          </font>
-        </Link>
-      </h3>
-      <br />
-      <br />
-      <br />
+    }
+  >
+    <h3>
+      Resourceful, Reliable, Individuals - Business connect platform. 
+    </h3>
+    <h3>
+      You need it, Here you go, 
       <Link
-        id="Homebutton"
         onlyActiveOnIndex={false}
-        style={Object {}}
+        style={
+          Object {
+            "textDecoration": "none",
+          }
+        }
         to="/businesses"
       >
-        <button
-          className="btn btn-default"
-          type="submit"
+        <font
+          style={
+            Object {
+              "color": "rgb(173, 32, 32)",
+              "marginLeft": "15px",
+            }
+          }
         >
-          View Businesses
-        </button>
+          <span
+            className="glyphicon glyphicon-hand-right"
+          />
+           Connect *
+        </font>
       </Link>
-      <Link
-        id="Homebutton"
-        onlyActiveOnIndex={false}
-        style={Object {}}
-        to="/addbusiness"
+    </h3>
+    <br />
+    <br />
+    <br />
+    <Link
+      id="Homebutton"
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/businesses"
+    >
+      <button
+        className="btn btn-default"
+        type="submit"
       >
-        <button
-          className="btn btn-default"
-          type="submit"
-        >
-          Create Business
-        </button>
-      </Link>
-    </div>
+        View Businesses
+      </button>
+    </Link>
+    <Link
+      id="Homebutton"
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/addbusiness"
+    >
+      <button
+        className="btn btn-default"
+        type="submit"
+      >
+        Create Business
+      </button>
+    </Link>
   </div>
-  <Footer />
 </div>
 `;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import swal from 'sweetalert';
 import axios from 'axios'
 import { browserHistory } from 'react-router';
@@ -29,7 +28,6 @@ class CreateBusiness extends Component {
   render() {
     return (
       <div className="row">
-        <Header />
         <div className="col-md-3"></div>
         <div className="col-md-6" id="businesscontent">
           <h3>Create a business</h3><br />
@@ -49,8 +47,9 @@ class CreateBusiness extends Component {
               <label>Category:</label>
               <select className="field" name='category' required>
                 <option>Technology</option>
-                <option>Tourism & Hotels</option>
                 <option>Health</option>
+                <option>Fashion</option>
+                <option>Tourism & Hotels</option>
                 <option>Education</option>
                 <option>Finance & Accounting</option>
                 <option>Farming</option>
@@ -69,7 +68,6 @@ class CreateBusiness extends Component {
 
         </div>
         <div className="col-md-3"></div>
-        <Footer />
       </div>
     );
   }

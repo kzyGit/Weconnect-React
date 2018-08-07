@@ -4,6 +4,27 @@ body{
   border:0;
   font-size: 15px;
 }
+
+#businesslink{
+  margin-bottom:200px !important
+}
+#label {font-weight: bold}
+#carditem {
+  border: 1px solid #ddd;
+  border-radius:5px;
+  margin-bottom: 20px;
+  box-shadow: 2px 4px #ddd;
+  text-align: center
+}
+.card-title {
+  color:rgb(54, 54, 129);
+}
+.bcards {
+  text-align: center;
+  
+}
+
+
 #btitle {font-weight: bold;}
 .onebusinesscontent {
   background-color:#eee !important;
@@ -40,7 +61,17 @@ body{
    padding: 15px;
    width: 70%;
    margin: auto;
-   margin-top:5% !important;
+   margin-top:3% !important;
+}
+.businessescontent {
+  background-color:#eee !important;
+   color: black;
+   border-radius:5px;
+   margin:auto !important;
+   padding: 15px;
+   width: 85%;
+   margin: auto;
+   margin-top:3% !important;
 }
 .footer {
   width:90%;
@@ -71,6 +102,9 @@ th{
   height:32px;
   width:150px !important
 }
+#filterspan {
+  padding-left:4%
+}
 #reviewform {
   border:1px solid #ddd;
   padding-left:20px;
@@ -99,7 +133,7 @@ td, th {padding:15px !important;}
    padding: 15px;
    width: 40%;
    margin: auto;
-   margin-top:8% !important;
+   margin-top:3% !important;
 }
 #loadpage {
   margin-top:10%;
@@ -137,21 +171,24 @@ label {
 #row {
   width:25px;}
 
-#search {
+#search, #searchfilter, #searchname {
   border-radius:3px;
   height: 30px;
   padding: 4px;
   border: 1px solid #ddd}
+#loader {
+  float: right;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
 
+}
 #search-icon {
   border-radius:2px;
   height: 30px;
   padding-top: 2px;
   border: 1px solid grey}
 
-#filter {
-  width:130px;
-  float:right;}
 
 #root{
   padding:1%;

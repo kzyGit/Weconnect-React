@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import  { Base_url, loader } from './Header';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
@@ -11,12 +10,18 @@ import { Link } from 'react-router';
  * Login component
  */
 class Login extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false
+    };
+  }
   /**
    * Makes a server responce to validate user and allow login
    */
   login = (e) => {
     e.preventDefault();
+    this.setState({ loading: true})
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
     localStorage.setItem('loggedIn', false)
@@ -29,6 +34,7 @@ class Login extends Component {
       if (response.data.status_code === 204) {
         swal('User not found, kindly use a registered username');
         localStorage.removeItem('loggedIn')
+        this.setState({ loading: false})
       }
 
       else {
@@ -41,12 +47,6 @@ class Login extends Component {
         localStorage.setItem("username", username)
         localStorage.setItem("email", email)
         browserHistory.push('/dashboard')
-        swal({
-          title: "Success!",
-          text: "You have successfully logged in",
-          icon: "success",
-          button: "Ok",
-        });
       }
     })
       .catch(error => {
@@ -54,13 +54,12 @@ class Login extends Component {
           const message = error.response.data.Error
           localStorage.removeItem('loggedIn')
           swal("Error!!", message, "error");
+          this.setState({ loading: false})
         }
       });
   }
   render() {
     return (
-      <div className="row">
-        <Header />
         <div className="signupcontent">
           <div className="row">
             <h3 style={{ paddingLeft: '20px', color: 'break' }}>Login</h3><br />
@@ -69,15 +68,19 @@ class Login extends Component {
 
               <form onSubmit={this.login}>
                 <div className="form-group">
-                  <label>Username:</label><input type="text" name='username' className="field" />
+                  <label>Username:</label><input type="text" name='username' className="field" required/>
 
                 </div><br />
                 <div className="form-group">
                   <label >Password:</label>
-                  <input type="password" className="field" name='password' />
+                  <input type="password" className="field" name='password' required/>
                 </div><br />
-                <button style={{ float: 'right' }} type="submit" className="btn btn-default">Submit</button>
-              </form>
+                {!this.state.loading ?
+                <button style={{ float: 'right' }} type="submit" className="btn btn-default">Login</button>
+                : 
+                loader
+                }
+                </form>
             </div><br /><br />
 
             <Link to={'/resetpassword'}><span style={{ textAlign: 'center' }}>Forgot password?</span></Link>
@@ -86,8 +89,6 @@ class Login extends Component {
             <div className="col-md-1"></div>
           </div>
         </div>
-        <Footer />
-      </div>
     );
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url, loader } from './Header';
 import swal from 'sweetalert';
 import axios from 'axios'
 import PropTypes from 'prop-types'
@@ -13,6 +12,12 @@ import { browserHistory } from 'react-router';
  */
 class EditPassword extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false
+        };
+    }
     /**
      * Save reset token and redirect to '/resetPwd' to clear long token url
      */
@@ -21,7 +26,7 @@ class EditPassword extends Component {
         localStorage.setItem('resettoken', auth_token)
         browserHistory.push('/resetPwd')
 
-        if (localStorage.resettoken === 'undefined'){
+        if (localStorage.resettoken === 'undefined') {
             browserHistory.push('/resetPassword')
         }
     }
@@ -31,10 +36,11 @@ class EditPassword extends Component {
      */
     requestResetPass = (e) => {
         e.preventDefault()
+        this.setState({ loading: true })
 
         const auth_token = localStorage.getItem("resettoken")
         const config = { headers: { 'Authorization': "bearer " + auth_token } }
-        
+
         const new_password = e.target.elements.new_pwd.value;
         const confirm_password = e.target.elements.confirm_pwd.value;
 
@@ -61,38 +67,38 @@ class EditPassword extends Component {
                 browserHistory.push('/resetPassword')
                 swal("Error!!", "Invalid request, kindly request for password reset to get a valid token", "error");
             }
+            this.setState({ loading: false })
         });
     }
 
     render() {
         return (
-            <div className="row">
-                <Header />
-                <div className="signupcontent">
-                    <div className="row">
-                        <h3 style={{ paddingLeft: '20px', color: 'break' }}>Reset Password:</h3><br />
+            <div className="signupcontent">
+                <div className="row">
+                    <h3 style={{ paddingLeft: '20px', color: 'break' }}>Reset Password:</h3><br />
 
-                        <div className="col-md-1" ></div>
-                        <div className="col-md-10" >
-                            <form className="reset-pwd-form" onSubmit={this.requestResetPass}>
-                                <div className="form-group">
-                                    <label>New Password:</label>
-                                    <input type="password" className="field" name='new_pwd' />
-                                </div>
-                                <br />
-                                <div className="form-group">
-                                    <label>Confirm Password:</label>
-                                    <input type="password" className="field" name='confirm_pwd' />
-                                </div><br />
-
+                    <div className="col-md-1" ></div>
+                    <div className="col-md-10" >
+                        <form className="reset-pwd-form" onSubmit={this.requestResetPass}>
+                            <div className="form-group">
+                                <label>New Password:</label>
+                                <input type="password" className="field" name='new_pwd' />
+                            </div>
+                            <br />
+                            <div className="form-group">
+                                <label>Confirm Password:</label>
+                                <input type="password" className="field" name='confirm_pwd' />
+                            </div><br />
+                            {!this.state.loading ?
                                 <a style={{ float: 'right' }}><button type="submit" className="btn btn-primary">Reset</button></a>
-                                <br />
-                            </form>
-                        </div>
-                        <div className="col-md-1"></div>
+                                :
+                                loader
+                            }
+                            <br />
+                        </form>
                     </div>
+                    <div className="col-md-1"></div>
                 </div>
-                <Footer />
             </div>
         );
     }

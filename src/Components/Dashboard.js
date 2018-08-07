@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import { Link } from 'react-router';
 import axios from 'axios'
 import swal from 'sweetalert';
@@ -11,18 +10,6 @@ import { browserHistory } from 'react-router';
  * Display a users businesses and allows user to access edit and delete business features
  */
 class Dashboard extends Component {
-  render() {
-    return (
-      <div className="row">
-        <Header />
-        <DashboardContent />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-class DashboardContent extends Component {
 
   state = {
     businesses: [],
@@ -123,7 +110,7 @@ class DashboardContent extends Component {
                           <span className="glyphicon glyphicon-edit"></span> </button>
                         </Link>
                       </td>
-                      <td><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
+                      <td id="deletebusiness"><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
                     </tr>
                   )}
                 </tbody>
