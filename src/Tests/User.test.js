@@ -8,9 +8,9 @@ import Resetpwd from '../Components/Resetpwd';
 import My404Component from '../Components/My404Component';
 import ActivateAccount from '../Components/ActivateAccount';
 import { shallowToJson } from 'enzyme-to-json';
-import sinon from 'sinon'
-import axios from 'axios'
-import moxios from 'moxios'
+import sinon from 'sinon';
+import axios from 'axios';
+import moxios from 'moxios';
 
 describe('Login component', () => {
 
@@ -32,12 +32,12 @@ describe('Login component', () => {
 describe('Signup component', () => {
 
     beforeEach(() => {
-        moxios.install(axios)
-    })
+        moxios.install(axios);
+    });
 
     afterEach(() => {
-        moxios.uninstall(axios)
-    })
+        moxios.uninstall(axios);
+    });
 
     const wrapper = shallow(<Signup />);
 
@@ -47,7 +47,7 @@ describe('Signup component', () => {
 
     it('handles submit', () => {
         let signUp = sinon.spy();
-        let wrapper = mount(<Signup onSubmit={signUp} />)
+        let wrapper = mount(<Signup onSubmit={signUp} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => { });
     });
@@ -58,7 +58,7 @@ describe('Resetpassword component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-})
+});
 
 describe('Resetpwd component', () => {
     const params = {
@@ -70,7 +70,7 @@ describe('Resetpwd component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-})
+});
 
 describe('Editpassword component', () => {
     const wrapper = shallow(<Editpassword />);
@@ -80,13 +80,13 @@ describe('Editpassword component', () => {
 
     it('handles editpass onsubmit', () => {
         let editpass = sinon.spy();
-        let wrapper = mount(<Editpassword onSubmit={editpass} />)
+        let wrapper = mount(<Editpassword onSubmit={editpass} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => {
         });
     });
 
-})
+});
 describe('ActivateAccount component', () => {
 
     const params = {
@@ -98,7 +98,7 @@ describe('ActivateAccount component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-})
+});
 
 
 describe('My404Component component', () => {
@@ -106,4 +106,4 @@ describe('My404Component component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-})
+});

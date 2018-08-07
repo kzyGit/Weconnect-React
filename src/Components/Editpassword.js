@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url } from './Header';
 import swal from 'sweetalert';
-import axios from 'axios'
+import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 /**
@@ -16,7 +16,7 @@ class EditPassword extends Component {
   componentDidMount() {
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to edit password', "error");
-      browserHistory.push('/login')
+      browserHistory.push('/login');
     }
   }
 
@@ -60,16 +60,16 @@ class EditPassword extends Component {
    * Make server request to edit user's password
    */
   editpass = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const email = e.target.elements.email.value;
     const current_password = e.target.elements.current_password.value;
     const new_password = e.target.elements.new_password.value;
     const confirm_password = e.target.elements.confirm_password.value;
 
-    const access_token = localStorage.getItem("access_token")
+    const access_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + access_token }
-    }
+    };
 
     axios.put(`${Base_url}/auth/update_password`, {
       email: email,
@@ -83,11 +83,11 @@ class EditPassword extends Component {
       }
       else if (response.data.Status_code === 401) {
         swal("Error!!", response.data.Error, "error");
-        localStorage.removeItem('loggedIn')
-        browserHistory.push('/login')
+        localStorage.removeItem('loggedIn');
+        browserHistory.push('/login');
       }
       else {
-        browserHistory.push('/dashboard')
+        browserHistory.push('/dashboard');
         swal({
           title: "Success!",
           text: response.data.Success,

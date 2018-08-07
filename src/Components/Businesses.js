@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url } from './Header';
 import { Link } from 'react-router';
-import axios from 'axios'
+import axios from 'axios';
 import swal from 'sweetalert';
 import JwPagination from 'jw-react-pagination';
 import icon from '../Images/businessicon.png';
@@ -45,12 +45,12 @@ class Businesses extends Component {
     axios.get(`${Base_url}/businesses?q=${name}`).then(res => {
       if (res.data.status_code === 204) {
         swal('Sorry, no business found');
-        this.search.value = ''
+        this.search.value = '';
       }
       else {
         this.setState({ businesses: res.data });
       }
-    })
+    });
   }
 
   /**
@@ -59,7 +59,7 @@ class Businesses extends Component {
    */
   filter = (e) => {
     e.preventDefault();
-    this.search.value = ''
+    this.search.value = '';
 
     const category = e.target.elements.searchcategory.value;
     const location = e.target.elements.searchlocation.value;
@@ -72,18 +72,18 @@ class Businesses extends Component {
       else {
         this.setState({ businesses: resp.data });
       }
-    })
+    });
   }
 
   changename = (e) => {
-    e.preventDefault()
-    this.cat.value = ''
-    this.loc.value = ''
+    e.preventDefault();
+    this.cat.value = '';
+    this.loc.value = '';
   }
 
   changefilter = (e) => {
-    e.preventDefault()
-    this.search.value = ''
+    e.preventDefault();
+    this.search.value = '';
   }
 
   render() {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url } from './Header';
 import icon from '../Images/businessicon.png';
-import axios from 'axios'
+import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * This component renders a single business
@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 class Business extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       businesses: [],
       reviews: [],
@@ -28,7 +28,7 @@ class Business extends Component {
   toggleHidden() {
     this.setState({
       isHidden: !this.state.isHidden
-    })
+    });
   }
 
   /**
@@ -41,7 +41,7 @@ class Business extends Component {
       this.setState({ businesses: response.data });
     }).catch(error => {
       if (error.response.status === 404) {
-        const message = error.response.data.Error
+        const message = error.response.data.Error;
         swal("message!!", message, "error");
       }
 
@@ -118,15 +118,15 @@ class Business extends Component {
   addreview = (e) => {
     e.preventDefault();
 
-    const auth_token = localStorage.getItem("access_token")
-    const config = { headers: { 'Authorization': "bearer " + auth_token } }
+    const auth_token = localStorage.getItem("access_token");
+    const config = { headers: { 'Authorization': "bearer " + auth_token } };
     const bid = this.props.params.bid;
     const content = e.target.elements.content.value;
 
     axios.post(`${Base_url}/businesses/${bid}/review`, {
       content: content
     }, config).then(response => {
-      window.location.reload()
+      window.location.reload();
       swal({
         title: "Success!",
         text: response.data.Success,
@@ -135,14 +135,14 @@ class Business extends Component {
     })
       .catch(error => {
         if (error.response.status === 401) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
-          localStorage.removeItem('loggedIn')
-          browserHistory.push('/login')
+          localStorage.removeItem('loggedIn');
+          browserHistory.push('/login');
         }
 
         else if (error.response.status === 400) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
         }
       });
@@ -151,5 +151,5 @@ class Business extends Component {
 
 Business.propTypes = {
   params: PropTypes.object
-}
+};
 export default Business;

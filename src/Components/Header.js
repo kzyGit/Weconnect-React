@@ -18,14 +18,14 @@ class Header extends Component {
      */
     this.logout = () => {
       localStorage.removeItem('loggedIn');
-      localStorage.removeItem("access_token")
-      browserHistory.push('/home')
-    }
+      localStorage.removeItem("access_token");
+      browserHistory.push('/home');
+    };
 
-    let sty = { color: '#eee' }
-    let sty2 = { color: '#eee', backgroundColor: 'rgb(54, 54, 129' }
-    let droplink = { color: 'black' }
-    let sty1 = { borderBottom: '1px solid #ddd', borderRadius: '5px' }
+    let sty = { color: '#eee' };
+    let sty2 = { color: '#eee', backgroundColor: 'rgb(54, 54, 129' };
+    let droplink = { color: 'black' };
+    let sty1 = { borderBottom: '1px solid #ddd', borderRadius: '5px' };
     return (
       <div className="Header" >
         <nav className="navbar navbar-inverse" style={{ backgroundColor: 'rgb(54, 54, 129)', border: '0' }}>
@@ -69,5 +69,5 @@ class Header extends Component {
     );
   }
 }
-export const loader = <span id='loader'>Loading   <i className="fa fa-spinner fa-spin" /></span>
+export const loader = <span id='loader'>Loading   <i className="fa fa-spinner fa-spin" /></span>;
 export default Header;

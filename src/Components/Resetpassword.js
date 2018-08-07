@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url, loader } from './Header';
 import swal from 'sweetalert';
-import axios from 'axios'
+import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 /**
@@ -10,7 +10,7 @@ import { browserHistory } from 'react-router';
  */
 class ResetPassword extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             loading: false
         };
@@ -44,8 +44,8 @@ class ResetPassword extends Component {
      * Makes server request to validate email and send a reset link to user's email
      */
     requestResetPass = (e) => {
-        e.preventDefault()
-        this.setState({ loading: true })
+        e.preventDefault();
+        this.setState({ loading: true });
         const email = e.target.elements.email.value;
 
         axios.post(`${Base_url}/auth/reset_password`, {
@@ -54,11 +54,11 @@ class ResetPassword extends Component {
 
             if (response.data.status_code === 204) {
                 swal("Error!!", "Unrecognised email, kindly ensure to use the email you registered with", "error");
-                this.setState({ loading: false })
+                this.setState({ loading: false });
             }
             else {
-                browserHistory.push('/login')
-                localStorage.removeItem("resettoken")
+                browserHistory.push('/login');
+                localStorage.removeItem("resettoken");
                 swal({
                     title: "Success!",
                     text: "Kindly check your email for a token to reset your password",
@@ -69,7 +69,7 @@ class ResetPassword extends Component {
         }).catch(error => {
             if (error.response.status === 400) {
                 swal("Error!!", error.response.data.Error, "error");
-                this.setState({ loading: false })
+                this.setState({ loading: false });
             }
         });
     }

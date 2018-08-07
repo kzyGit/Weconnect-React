@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 import BackNav from './BackNav';
@@ -23,5 +23,5 @@ class Root extends Component {
 }
 Root.propTypes = {
   children: PropTypes.object
-}
+};
 export default Root;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url } from './Header';
 import swal from 'sweetalert';
-import axios from 'axios'
+import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 /**
@@ -21,7 +21,7 @@ class CreateBusiness extends Component {
 
     if (!localStorage.loggedIn) {
       swal('Kindly login first to create a business !');
-      browserHistory.push('/login')
+      browserHistory.push('/login');
     }
   }
 
@@ -77,17 +77,17 @@ class CreateBusiness extends Component {
    * @return {object} a new business
    */
   createBusiness = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const business_name = e.target.elements.business_name.value;
     const location = e.target.elements.location.value;
     const category = e.target.elements.category.value;
     const about = e.target.elements.about.value;
 
-    const access_token = localStorage.getItem("access_token")
+    const access_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + access_token }
-    }
+    };
 
     axios.post(`${Base_url}/businesses`, {
       business_name: business_name,
@@ -96,7 +96,7 @@ class CreateBusiness extends Component {
       about: about
 
     }, config).then(response => {
-      browserHistory.push('/dashboard')
+      browserHistory.push('/dashboard');
       swal({
         title: "Success!",
         text: response.data.Success,
@@ -107,17 +107,17 @@ class CreateBusiness extends Component {
       .catch(error => {
 
         if (error.response.status === 409) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
         }
         else if (error.response.status === 401) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
-          localStorage.removeItem('loggedIn')
-          browserHistory.push('/login')
+          localStorage.removeItem('loggedIn');
+          browserHistory.push('/login');
         }
         else if (error.response.status === 400) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
         }
       });

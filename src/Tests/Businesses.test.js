@@ -3,11 +3,10 @@ import { shallow, mount } from 'enzyme';
 import CreateBusiness from '../Components/CreateBusiness';
 import EditBusiness from '../Components/EditBusiness';
 import Businesses from '../Components/Businesses';
-import Business from '../Components/Business';
 import Dashboard from '../Components/Dashboard';
 import BackNav from '../Components/BackNav';
 import { shallowToJson } from 'enzyme-to-json';
-import sinon from 'sinon'
+import sinon from 'sinon';
 import moxios from 'moxios';
 
   
@@ -32,7 +31,7 @@ describe('CreateBusinesses component', () => {
 
     it('handles submit', () => {
         let createBusiness = sinon.spy();
-        let wrapper = mount(<CreateBusiness onSubmit={createBusiness} />)
+        let wrapper = mount(<CreateBusiness onSubmit={createBusiness} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => {
         });
@@ -52,7 +51,7 @@ describe('Businesses component', () => {
 
     it('handles searchByName', () => {
         let searchByName = sinon.spy();
-        let wrapper = mount(<Businesses onSubmit={searchByName} />)
+        let wrapper = mount(<Businesses onSubmit={searchByName} />);
         wrapper.find('#searchform').simulate('submit');
         moxios.wait(() => {
         });
@@ -60,7 +59,7 @@ describe('Businesses component', () => {
 
     it('handles filter', () => {
         let filter = sinon.spy();
-        let wrapper = mount(<Businesses onSubmit={filter} />)
+        let wrapper = mount(<Businesses onSubmit={filter} />);
         wrapper.find('#filterform').simulate('submit');
         moxios.wait(() => {
         });
@@ -68,7 +67,7 @@ describe('Businesses component', () => {
 
     it('handles changename', () => {
         let changename = sinon.spy();
-        let wrapper = mount(<Businesses onSubmit={changename} />)
+        let wrapper = mount(<Businesses onSubmit={changename} />);
         wrapper.find('#searchname').simulate('change');
         moxios.wait(() => {
         });
@@ -76,7 +75,7 @@ describe('Businesses component', () => {
 
     it('handles changefilter', () => {
         let changefilter = sinon.spy();
-        let wrapper = mount(<Businesses onSubmit={changefilter} />)
+        let wrapper = mount(<Businesses onSubmit={changefilter} />);
         wrapper.find('#searchfilter').simulate('change');
         moxios.wait(() => {
         });

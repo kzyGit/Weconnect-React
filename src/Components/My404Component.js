@@ -7,8 +7,8 @@ import { browserHistory } from 'react-router';
  */
 class My404Component extends Component {
     componentDidMount() {
-        alert('Sorry, the page you are trying to access does not exist\n                             Redirect to Homepage')
-        browserHistory.push('/home')
+        alert('Sorry, the page you are trying to access does not exist\n                             Redirect to Homepage');
+        browserHistory.push('/home');
     }
     render() {
         return (
@@ -18,4 +18,4 @@ class My404Component extends Component {
     }
 }
 
-export default My404Component
+export default My404Component;

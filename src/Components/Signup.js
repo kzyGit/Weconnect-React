@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url, loader } from './Header';
-import axios from 'axios'
+import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
@@ -10,7 +10,7 @@ import { browserHistory } from 'react-router';
  */
 class Signup extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loading: false
     };
@@ -19,8 +19,8 @@ class Signup extends Component {
    * Makes server request to create a new user
    */
   signUp = (e) => {
-    e.preventDefault()
-    this.setState({ loading: true})
+    e.preventDefault();
+    this.setState({ loading: true});
     const username = e.target.elements.username.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
@@ -33,7 +33,7 @@ class Signup extends Component {
       confirm_password: confirm_password
 
     }).then(response => {
-      browserHistory.push('/login')
+      browserHistory.push('/login');
       swal({
         title: "Success!",
         text: response.data.Success,
@@ -43,14 +43,14 @@ class Signup extends Component {
     })
       .catch(error => {
         if (error.response.status === 409) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
-          this.setState({ loading: false})
+          this.setState({ loading: false});
         }
         else if (error.response.status === 400) {
-          const message = error.response.data.Error
+          const message = error.response.data.Error;
           swal("Error!!", message, "error");
-          this.setState({ loading: false})
+          this.setState({ loading: false});
         }
       });
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Base_url } from './Header';
 import { Link } from 'react-router';
-import axios from 'axios'
+import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
@@ -24,11 +24,11 @@ class Dashboard extends Component {
 
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to view your dashboard', "error");
-      browserHistory.push('/login')
+      browserHistory.push('/login');
     }
     else {
-      const auth_token = localStorage.getItem("access_token")
-      const config = { headers: { 'Authorization': "bearer " + auth_token } }
+      const auth_token = localStorage.getItem("access_token");
+      const config = { headers: { 'Authorization': "bearer " + auth_token } };
 
       axios.get(`${Base_url}/mybusinesses`, config).then(response => {
         this.setState({ businesses: response.data });
@@ -36,8 +36,8 @@ class Dashboard extends Component {
         if (error.response.status === 401) {
           swal("Error!!", "Login session expired, Login again to view your dashboard", "error");
 
-          localStorage.removeItem('loggedIn')
-          browserHistory.push('/login')
+          localStorage.removeItem('loggedIn');
+          browserHistory.push('/login');
         }
       });
     }
@@ -48,10 +48,10 @@ class Dashboard extends Component {
    * @param {int} business_id
    */
   deleteBusiness = (business_id) => {
-    const auth_token = localStorage.getItem("access_token")
+    const auth_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + auth_token }
-    }
+    };
     swal({
       text: "Are you sure you want to delete this business?",
       icon: "warning",
@@ -63,18 +63,18 @@ class Dashboard extends Component {
 
           axios.delete(`${Base_url}/businesses/${business_id}`, config)
             .then(response => {
-              this.componentDidMount()
+              this.componentDidMount();
               swal(response.data.Success, {
                 icon: "success",
               });
-              browserHistory.push('/dashboard')
+              browserHistory.push('/dashboard');
             })
             .catch(error => {
               if (error.response.status === 404) {
-                const message = error.response.data.Error
+                const message = error.response.data.Error;
                 swal("Error!!", message, "error");
               }
-            })
+            });
         }
       });
   }

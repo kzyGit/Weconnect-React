@@ -4,7 +4,7 @@ import { Base_url } from './Header';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * Component that validates user on signup, when accessed from validation email
@@ -12,22 +12,20 @@ import PropTypes from 'prop-types'
 class ActivateAccount extends Component {
 
   componentDidMount() {
-    const token = this.props.params.token
-    
-    const config = { headers: { 'Authorization': "bearer " + token } }
+    const token = this.props.params.token;
+
+    const config = { headers: { 'Authorization': "bearer " + token } };
     axios.put(`${Base_url}/auth/login`, {}, config).then(response => {
 
       if (response.data.Status_code === 401) {
-        const message = response.data.Error
-        browserHistory.push('/login')
-        swal("Error!!", message, "error");
+        browserHistory.push('/login');
+        swal("Error!!", response.data.Error, "error");
       }
       else {
-        const message = response.data.Success
-        browserHistory.push('/login')
+        browserHistory.push('/login');
         swal({
           title: "Success!",
-          text: message,
+          text: response.data.Success,
           icon: "success",
           button: "Ok",
         });
@@ -35,6 +33,7 @@ class ActivateAccount extends Component {
     })
 
       .catch(error => {
+        
       });
   }
 
@@ -46,5 +45,5 @@ class ActivateAccount extends Component {
 }
 ActivateAccount.propTypes = {
   params: PropTypes.object.isRequired
-}
+};
 export default ActivateAccount;
