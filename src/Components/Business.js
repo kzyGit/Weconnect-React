@@ -103,7 +103,6 @@ class Business extends Component {
                     {review.Review}<br />
                     <span id="reviewer"><span className="glyphicon glyphicon-user" style={{ paddingRight: '10px', color: 'black' }}></span> {review.createdBy}</span><br />
                   </div>)}
-
               </div>
             </div>
           </div>
