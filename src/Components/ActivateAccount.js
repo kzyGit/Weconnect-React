@@ -1,44 +1,47 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 /**
  * Component that validates user on signup, when accessed from validation email
  */
 class ActivateAccount extends Component {
 
-    componentDidMount() {
-        axios.put(`${Base_url}/auth/login`, {
-            username: this.props.params.username
-          }).then(response => {
-            const message = response.data.Success
-            browserHistory.push('/login')
-              swal({
-                title: "Success!",
-                text: message,
-                icon: "success",
-                button: "Ok",
-              });
-    });
-}
+  componentDidMount() {
+    const token = this.props.params.token;
+
+    const config = { headers: { 'Authorization': "bearer " + token } };
+    axios.put(`${Base_url}/auth/login`, {}, config).then(response => {
+
+      if (response.data.Status_code === 401) {
+        browserHistory.push('/login');
+        swal("Error!!", response.data.Error, "error");
+      }
+      else {
+        browserHistory.push('/login');
+        swal({
+          title: "Success!",
+          text: response.data.Success,
+          icon: "success",
+          button: "Ok",
+        });
+      }
+    })
+
+      .catch();
+  }
 
   render() {
     return (
-      <div className="row">
-        <Header />
-        <div className="signupcontent">
-        </div>
-        <Footer />
-      </div>
+      <div></div >
     );
   }
 }
 ActivateAccount.propTypes = {
-    params: PropTypes.object
-  }
+  params: PropTypes.object.isRequired
+};
 export default ActivateAccount;

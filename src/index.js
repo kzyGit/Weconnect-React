@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 import Home from './Components/Home';
 import Root from './Components/Root';
@@ -11,6 +11,7 @@ import Business from './Components/Business';
 import Businesses from './Components/Businesses';
 import Editpassword from './Components/Editpassword';
 import EditBusiness from './Components/EditBusiness';
+import My404Component from './Components/My404Component';
 import Resetpassword from './Components/Resetpassword';
 import Resetpwd from './Components/Resetpwd';
 import Dashboard from './Components/Dashboard';
@@ -29,7 +30,7 @@ class App extends React.Component {
                     <Route path={"home"} component={Home} />
                     <Route path={"signup"} component={Signup} />
                     <Route path={"login"} component={Login} />
-                    <Route path={"validateaccount/:username"} component={ActivateAccount} />
+                    <Route path={"validateaccount/:token"} component={ActivateAccount} />
                     <Route path={"editPassword"} component={Editpassword} />
                     <Route path={"addbusiness"} component={CreateBusiness} />
                     <Route path={"business/:bid"} component={Business} />
@@ -39,6 +40,7 @@ class App extends React.Component {
                     <Route path={"resetPassword"} component={Resetpassword} />
                     <Route path={"resetPwd/:token"} component={Resetpwd} />
                     <Route path={"resetPwd"} component={Resetpwd} />
+                    <Route path='*' component={My404Component} />
                 </Route>
             </Router>
         );

@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=ch-create-travis-badge)](https://travis-ci.org/kzyGit/Weconnect-React)
-[![Coverage Status](https://coveralls.io/repos/github/kzyGit/Weconnect-React/badge.svg?branch=ch-create-coveralls-badge)](https://coveralls.io/github/kzyGit/Weconnect-React?branch=ch-create-coveralls-badge)
+[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=develop)](https://travis-ci.org/kzyGit/Weconnect-React)
+[![Coverage Status](https://coveralls.io/repos/github/kzyGit/Weconnect-React/badge.svg?branch=develop)](https://coveralls.io/github/kzyGit/Weconnect-React?branch=develop)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0f1657fb7fa04eeb8f3438dadeafa46b)](https://www.codacy.com/project/kzyGit/Weconnect-React/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kzyGit/Weconnect-React&amp;utm_campaign=Badge_Grade_Dashboard)
 
 <h3>WeConnect</h3>
 

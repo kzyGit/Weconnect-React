@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/App.css';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
-import swal from 'sweetalert';
+export const Base_url = process.env.REACT_APP_api_url;
 
 /**
  * Header component
@@ -18,20 +18,14 @@ class Header extends Component {
      */
     this.logout = () => {
       localStorage.removeItem('loggedIn');
-      localStorage.removeItem("access_token")
-      browserHistory.push('/home')
-      swal({
-        title: "Success!",
-        text: "You have successfully logged out",
-        icon: "success",
-        button: "Ok",
-      });
-    }
+      localStorage.removeItem("access_token");
+      browserHistory.push('/home');
+    };
 
-    let sty = { color: '#eee' }
-    let sty2 = { color: '#eee', backgroundColor: 'rgb(54, 54, 129' }
-    let droplink = { color: 'black' }
-    let sty1 = { borderBottom: '1px solid #ddd', borderRadius: '5px' }
+    let sty = { color: '#eee' };
+    let sty2 = { color: '#eee', backgroundColor: 'rgb(54, 54, 129' };
+    let droplink = { color: 'black' };
+    let sty1 = { borderBottom: '1px solid #ddd', borderRadius: '5px' };
     return (
       <div className="Header" >
         <nav className="navbar navbar-inverse" style={{ backgroundColor: 'rgb(54, 54, 129)', border: '0' }}>
@@ -75,6 +69,5 @@ class Header extends Component {
     );
   }
 }
-
-export const Base_url = 'https://weconnectapi-v2.herokuapp.com/api/v1';
+export const loader = <span id='loader'>Loading   <i className="fa fa-spinner fa-spin" /></span>;
 export default Header;

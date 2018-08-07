@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import Header, { Base_url } from './Header';
-import Footer from './Footer';
+import { Base_url } from './Header';
 import { Link } from 'react-router';
-import axios from 'axios'
+import axios from 'axios';
 import swal from 'sweetalert';
 import { browserHistory } from 'react-router';
 
@@ -11,18 +10,6 @@ import { browserHistory } from 'react-router';
  * Display a users businesses and allows user to access edit and delete business features
  */
 class Dashboard extends Component {
-  render() {
-    return (
-      <div className="row">
-        <Header />
-        <DashboardContent />
-        <Footer />
-      </div>
-    );
-  }
-}
-
-class DashboardContent extends Component {
 
   state = {
     businesses: [],
@@ -37,11 +24,11 @@ class DashboardContent extends Component {
 
     if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to view your dashboard', "error");
-      browserHistory.push('/login')
+      browserHistory.push('/login');
     }
     else {
-      const auth_token = localStorage.getItem("access_token")
-      const config = { headers: { 'Authorization': "bearer " + auth_token } }
+      const auth_token = localStorage.getItem("access_token");
+      const config = { headers: { 'Authorization': "bearer " + auth_token } };
 
       axios.get(`${Base_url}/mybusinesses`, config).then(response => {
         this.setState({ businesses: response.data });
@@ -49,8 +36,8 @@ class DashboardContent extends Component {
         if (error.response.status === 401) {
           swal("Error!!", "Login session expired, Login again to view your dashboard", "error");
 
-          localStorage.removeItem('loggedIn')
-          browserHistory.push('/login')
+          localStorage.removeItem('loggedIn');
+          browserHistory.push('/login');
         }
       });
     }
@@ -61,10 +48,10 @@ class DashboardContent extends Component {
    * @param {int} business_id
    */
   deleteBusiness = (business_id) => {
-    const auth_token = localStorage.getItem("access_token")
+    const auth_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + auth_token }
-    }
+    };
     swal({
       text: "Are you sure you want to delete this business?",
       icon: "warning",
@@ -76,18 +63,18 @@ class DashboardContent extends Component {
 
           axios.delete(`${Base_url}/businesses/${business_id}`, config)
             .then(response => {
-              this.componentDidMount()
+              this.componentDidMount();
               swal(response.data.Success, {
                 icon: "success",
               });
-              browserHistory.push('/dashboard')
+              browserHistory.push('/dashboard');
             })
             .catch(error => {
               if (error.response.status === 404) {
-                const message = error.response.data.Error
+                const message = error.response.data.Error;
                 swal("Error!!", message, "error");
               }
-            })
+            });
         }
       });
   }
@@ -123,7 +110,7 @@ class DashboardContent extends Component {
                           <span className="glyphicon glyphicon-edit"></span> </button>
                         </Link>
                       </td>
-                      <td><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
+                      <td id="deletebusiness"><button className="btn btn-danger" onClick={this.deleteBusiness.bind(this, business.id)}><span className="glyphicon glyphicon-trash"></span> </button></td>
                     </tr>
                   )}
                 </tbody>
