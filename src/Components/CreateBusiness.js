@@ -19,7 +19,7 @@ class CreateBusiness extends Component {
    */
   componentDidMount() {
 
-    if (!localStorage.loggedIn) {
+    if (!sessionStorage.loggedIn) {
       swal('Kindly login first to create a business !');
       browserHistory.push('/login');
     }
@@ -84,7 +84,7 @@ class CreateBusiness extends Component {
     const category = e.target.elements.category.value;
     const about = e.target.elements.about.value;
 
-    const access_token = localStorage.getItem("access_token");
+    const access_token = sessionStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + access_token }
     };
@@ -113,7 +113,7 @@ class CreateBusiness extends Component {
         else if (error.response.status === 401) {
           const message = error.response.data.Error;
           swal("Error!!", message, "error");
-          localStorage.removeItem('loggedIn');
+          sessionStorage.removeItem('loggedIn');
           browserHistory.push('/login');
         }
         else if (error.response.status === 400) {

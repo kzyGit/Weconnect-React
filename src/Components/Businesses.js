@@ -85,13 +85,18 @@ class Businesses extends Component {
     e.preventDefault();
     this.search.value = '';
   }
+  
+  reloadpage = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  }
 
   render() {
     return (
 
       <div className="businessescontent">
         <div className="row">
-          <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>Businesses</h3><br />
+        <h3 onClick={this.reloadpage} style={{ paddingLeft: '20px', cursor: 'pointer', color: 'maroon' }}>Businesses</h3><br />
           <div className="row">
           <div className="col-sm-8" id='filterspan'>
           

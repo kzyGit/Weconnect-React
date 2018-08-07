@@ -17,8 +17,8 @@ class Header extends Component {
      * Clear access token and loggedIn status from local storage
      */
     this.logout = () => {
-      localStorage.removeItem('loggedIn');
-      localStorage.removeItem("access_token");
+      sessionStorage.removeItem('loggedIn');
+      sessionStorage.removeItem("access_token");
       browserHistory.push('/home');
     };
 
@@ -46,9 +46,9 @@ class Header extends Component {
                 <li><Link to="/home" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-home"></span> Home</Link></li>
                 <li><Link to="/businesses" style={sty} activeStyle={sty1}>Businesses</Link></li>
 
-                {localStorage.loggedIn &&
+                {sessionStorage.loggedIn &&
                   <li>
-                    <a style={sty2} data-toggle="dropdown"><span className="glyphicon glyphicon-user"></span><span id='logoutname'>{localStorage.getItem("username")} </span>
+                    <a style={sty2} data-toggle="dropdown"><span className="glyphicon glyphicon-user"></span><span id='logoutname'>{sessionStorage.getItem("username")} </span>
                       <span className="caret" ></span></a>
                     <ul className="dropdown-menu" style={{ backgroundColor: '#ddd' }}>
                       <li><Link to="/addbusiness" style={droplink}><span style={{ paddingRight: '10px' }} className="glyphicon glyphicon-plus-sign"></span> Add Business</Link></li>
@@ -58,8 +58,8 @@ class Header extends Component {
                     </ul>
                   </li>
                 }
-                {!localStorage.loggedIn && <li><Link to="/login" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>}
-                {!localStorage.loggedIn && <li><Link to="/signup" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>}
+                {!sessionStorage.loggedIn && <li><Link to="/login" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>}
+                {!sessionStorage.loggedIn && <li><Link to="/signup" style={sty} activeStyle={sty1}><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>}
               </ul>
 
             </div>
