@@ -106,10 +106,4 @@ describe('My404Component component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-    it('handles redirect onsubmit', () => {
-        let redirect = sinon.spy();
-        let wrapper = mount(<My404Component onClick={redirect} />);
-        wrapper.find('button').simulate('click');
-
-    });
 });
