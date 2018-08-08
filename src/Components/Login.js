@@ -24,7 +24,7 @@ class Login extends Component {
     this.setState({ loading: true});
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
-    sessionStorage.setItem('loggedIn', false);
+    localStorage.setItem('loggedIn', false);
 
     axios.post(`${Base_url}/auth/login`, {
       username: username,
@@ -33,7 +33,7 @@ class Login extends Component {
 
       if (response.data.status_code === 204) {
         swal('User not found, kindly use a registered username');
-        sessionStorage.removeItem('loggedIn');
+        localStorage.removeItem('loggedIn');
         this.setState({ loading: false});
       }
 
@@ -42,17 +42,17 @@ class Login extends Component {
         const username = response.data.username;
         const email = response.data.email;
 
-        sessionStorage.setItem('loggedIn', true);
-        sessionStorage.setItem("access_token", access_token);
-        sessionStorage.setItem("username", username);
-        sessionStorage.setItem("email", email);
+        localStorage.setItem('loggedIn', true);
+        localStorage.setItem("access_token", access_token);
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", email);
         browserHistory.push('/dashboard');
       }
     })
       .catch(error => {
         if (error.response.status === 401) {
           const message = error.response.data.Error;
-          sessionStorage.removeItem('loggedIn');
+          localStorage.removeItem('loggedIn');
           swal("Error!!", message, "error");
           this.setState({ loading: false});
         }

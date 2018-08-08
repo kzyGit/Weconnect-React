@@ -23,10 +23,10 @@ class EditPassword extends Component {
      */
     componentDidMount() {
         const auth_token = this.props.params.token;
-        sessionStorage.setItem('resettoken', auth_token);
+        localStorage.setItem('resettoken', auth_token);
         browserHistory.push('/resetPwd');
 
-        if (sessionStorage.resettoken === 'undefined') {
+        if (localStorage.resettoken === 'undefined') {
             browserHistory.push('/resetPassword');
         }
     }
@@ -38,7 +38,7 @@ class EditPassword extends Component {
         e.preventDefault();
         this.setState({ loading: true });
 
-        const auth_token = sessionStorage.getItem("resettoken");
+        const auth_token = localStorage.getItem("resettoken");
         const config = { headers: { 'Authorization': "bearer " + auth_token } };
 
         const new_password = e.target.elements.new_pwd.value;
@@ -49,7 +49,7 @@ class EditPassword extends Component {
             confirm_password: confirm_password
         }, config).then(response => {
             browserHistory.push('/login');
-            sessionStorage.removeItem("resettoken");
+            localStorage.removeItem("resettoken");
 
             swal({
                 title: "Success!",

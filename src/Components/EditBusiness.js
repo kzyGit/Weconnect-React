@@ -30,12 +30,12 @@ class EditBusiness extends Component {
    * @returns {object} a business
    */
   componentDidMount() {
-    if (!sessionStorage.loggedIn) {
+    if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to update a business', "error");
       browserHistory.push('/home');
     }
     else {
-      const auth_token = sessionStorage.getItem("access_token");
+      const auth_token = localStorage.getItem("access_token");
       const config = { headers: { 'Authorization': "bearer " + auth_token } };
       const bid = this.props.params.bid;
 
@@ -55,7 +55,7 @@ class EditBusiness extends Component {
         }
         else if (error.response.status === 401) {
           swal("Error!!", error.response.data.Error, "error");
-          sessionStorage.removeItem('loggedIn');
+          localStorage.removeItem('loggedIn');
           browserHistory.push('/login');
         }
       });
@@ -68,7 +68,7 @@ class EditBusiness extends Component {
   editBusiness = (e) => {
     e.preventDefault();
     const { name, location, about, category } = this.state;
-    const access_token = sessionStorage.getItem("access_token");
+    const access_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + access_token }
     };
@@ -94,7 +94,7 @@ class EditBusiness extends Component {
         }
         else if (error.response.status === 401) {
           swal("Error!!", error.response.data.Error, "error");
-          sessionStorage.removeItem('loggedIn');
+          localStorage.removeItem('loggedIn');
           browserHistory.push('/login');
         }
         else if (error.response.status === 400) {

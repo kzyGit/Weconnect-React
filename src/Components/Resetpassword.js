@@ -58,7 +58,7 @@ class ResetPassword extends Component {
             }
             else {
                 browserHistory.push('/login');
-                sessionStorage.removeItem("resettoken");
+                localStorage.removeItem("resettoken");
                 swal({
                     title: "Success!",
                     text: "Kindly check your email for a token to reset your password",

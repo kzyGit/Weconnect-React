@@ -14,7 +14,7 @@ class EditPassword extends Component {
    * Display content only when user is authorised. If not, redirect to login
    */
   componentDidMount() {
-    if (!sessionStorage.loggedIn) {
+    if (!localStorage.loggedIn) {
       swal("Error!!", 'Login first to edit password', "error");
       browserHistory.push('/login');
     }
@@ -66,7 +66,7 @@ class EditPassword extends Component {
     const new_password = e.target.elements.new_password.value;
     const confirm_password = e.target.elements.confirm_password.value;
 
-    const access_token = sessionStorage.getItem("access_token");
+    const access_token = localStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + access_token }
     };
@@ -83,7 +83,7 @@ class EditPassword extends Component {
       }
       else if (response.data.Status_code === 401) {
         swal("Error!!", response.data.Error, "error");
-        sessionStorage.removeItem('loggedIn');
+        localStorage.removeItem('loggedIn');
         browserHistory.push('/login');
       }
       else {
