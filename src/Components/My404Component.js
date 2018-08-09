@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
  */
 class My404Component extends Component {
 
-    redirect = (e) => {
+    redirect = () => {
         browserHistory.goBack();
     }
     render() {

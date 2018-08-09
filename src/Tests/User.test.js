@@ -113,10 +113,17 @@ describe('ActivateAccount component', () => {
     });
 });
 
-
 describe('My404Component component', () => {
     const wrapper = shallow(<My404Component />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('handles redirect onbuttonclick', () => {
+        let redirect = sinon.spy();
+        let wrapper = mount(<My404Component onClick={redirect} />);
+        wrapper.find('button').simulate('click');
+        moxios.wait(() => {
+        });
     });
 });
