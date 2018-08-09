@@ -36,7 +36,7 @@ describe('Signup component', () => {
     afterEach(() => {
         moxios.uninstall();
     });
-    const wrapper = shallow(<Signup />);
+    let wrapper = shallow(<Signup />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('Signup component', () => {
 
     it('handles submit', () => {
         let signUp = sinon.spy();
-        let wrapper = mount(<Signup onSubmit={signUp} />);
+        wrapper = mount(<Signup onSubmit={signUp} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => { });
     });
@@ -78,14 +78,14 @@ describe('Editpassword component', () => {
         moxios.uninstall();
     });
 
-    const wrapper = shallow(<Editpassword />);
+    let wrapper = shallow(<Editpassword />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
     it('handles editpass onsubmit', () => {
         let editpass = sinon.spy();
-        let wrapper = mount(<Editpassword onSubmit={editpass} />);
+        wrapper = mount(<Editpassword onSubmit={editpass} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => {
         });
@@ -114,14 +114,14 @@ describe('ActivateAccount component', () => {
 });
 
 describe('My404Component component', () => {
-    const wrapper = shallow(<My404Component />);
+    let wrapper = shallow(<My404Component />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
     it('handles redirect onbuttonclick', () => {
         let redirect = sinon.spy();
-        let wrapper = mount(<My404Component onClick={redirect} />);
+        wrapper = mount(<My404Component onClick={redirect} />);
         wrapper.find('button').simulate('click');
         moxios.wait(() => {
         });

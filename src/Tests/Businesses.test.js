@@ -19,7 +19,7 @@ describe('CreateBusinesses component', () => {
         moxios.uninstall();
     });
 
-    const wrapper = shallow(<CreateBusiness />);
+    let wrapper = shallow(<CreateBusiness />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe('CreateBusinesses component', () => {
 
     it('handles submit', () => {
         let createBusiness = sinon.spy();
-        let wrapper = mount(<CreateBusiness onSubmit={createBusiness} />);
+        wrapper = mount(<CreateBusiness onSubmit={createBusiness} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => {
         });

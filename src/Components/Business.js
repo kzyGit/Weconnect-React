@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 
 /**
  * This component renders a single business
+ * @returns {obj} single business
+ * @param {string} e
  */
 class Business extends Component {
 
@@ -54,7 +56,7 @@ class Business extends Component {
   }
 
   showreviews = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     axios.get(`${Base_url}/businesses/${this.props.params.bid}/review`).then(response => {
       this.setState({ reviews: response.data });
     }).catch(error => {
@@ -121,6 +123,7 @@ class Business extends Component {
   /**
    * Makes api request to add a review for the business
    * @returns {string} success or error message
+   * @param {string} e
    */
   addreview = (e) => {
     e.preventDefault();

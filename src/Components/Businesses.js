@@ -9,6 +9,8 @@ import icon from '../Images/businessicon.png';
 
 /**
  * This component renders all available businesses
+ * @returns {obj} businesses
+ * @param {string} e
  */
 class Businesses extends Component {
   constructor() {
@@ -22,6 +24,8 @@ class Businesses extends Component {
 
   /**
    * update local state with new page of items
+   * @param {obj} pageOfItems
+   * @returns {obj} businesses
    */
   onChangePage(pageOfItems) {
     this.setState({ pageOfItems });
@@ -34,7 +38,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to retrieve a business searched by name
-   * @param {string} name
+   * @param {string} e
    * @return {object} businesses of the search name
    */
   searchByName = (e) => {
@@ -55,6 +59,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to filter businesses of a specified location and category
+   * @param {string} e
    * @return {object} businesses of a specified location and category
    */
   filter = (e) => {
