@@ -37,17 +37,25 @@ class Business extends Component {
    */
   componentDidMount() {
     const bid = this.props.params.bid;
-    axios.get(`${Base_url}/businesses/${this.props.params.bid}`).then(response => {
-      this.setState({ businesses: response.data });
+    axios.get(`${Base_url}/businesses/${bid}`).then(response => {
+      if (response.data.status_code === 204) {
+        swal("message!!", response.data.message, "error");
+        browserHistory.push('/businesses');
+      }
+      else {
+        this.setState({ businesses: response.data });
+      }
     }).catch(error => {
       if (error.response.status === 404) {
         const message = error.response.data.Error;
         swal("message!!", message, "error");
       }
-
     });
+  }
 
-    axios.get(`${Base_url}/businesses/${bid}/review`).then(response => {
+  showreviews = (e) => {
+    e.preventDefault()
+    axios.get(`${Base_url}/businesses/${this.props.params.bid}/review`).then(response => {
       this.setState({ reviews: response.data });
     }).catch(error => {
       if (error.response.status === 404) {
@@ -83,9 +91,9 @@ class Business extends Component {
         </div><br />
 
           <div>
-            <h4 id="details">Reviews
+            <button id="details" className="btn btn-default" onClick={ this.showreviews } style={{ pointer:'cursor' }}>Reviews 
             {localStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
-            </h4>
+            </button>
             <span id='rev'></span>
             <div>
               {!this.state.isHidden &&
