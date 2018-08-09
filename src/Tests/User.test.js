@@ -9,7 +9,6 @@ import My404Component from '../Components/My404Component';
 import ActivateAccount from '../Components/ActivateAccount';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon';
-import axios from 'axios';
 import moxios from 'moxios';
 
 describe('Login component', () => {
@@ -30,15 +29,13 @@ describe('Login component', () => {
 
 
 describe('Signup component', () => {
-
     beforeEach(() => {
-        moxios.install(axios);
+        moxios.install();
     });
 
     afterEach(() => {
-        moxios.uninstall(axios);
+        moxios.uninstall();
     });
-
     const wrapper = shallow(<Signup />);
 
     it('renders properly', () => {
@@ -73,6 +70,14 @@ describe('Resetpwd component', () => {
 });
 
 describe('Editpassword component', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
+    });
+
     const wrapper = shallow(<Editpassword />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -88,14 +93,22 @@ describe('Editpassword component', () => {
 
 });
 describe('ActivateAccount component', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
+    });
 
     const params = {
         params: {
             token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzM0NTg4OTEsImlhdCI6MTUzMzQ1Nzk5MSwic3ViIjoxfQ.kyBs0i9IdYL1g0mTZkmBRkDJBjI0dnXii5MebQrRmE8',
         },
     };
-    const wrapper = shallow(<ActivateAccount params={{ params }} />);
+    
     it('renders properly', () => {
+        let wrapper = shallow(<ActivateAccount params={{ params }} />);
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 });

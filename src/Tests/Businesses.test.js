@@ -11,13 +11,13 @@ import moxios from 'moxios';
 
   
 describe('CreateBusinesses component', () => {
-    const localStorageMock = {
-        getItem: jest.fn(),
-        setItem: jest.fn(),
-        clear: jest.fn()
-    };
-    global.localStorage = localStorageMock;
+    beforeEach(() => {
+        moxios.install();
+    });
 
+    afterEach(() => {
+        moxios.uninstall();
+    });
 
     const wrapper = shallow(<CreateBusiness />);
 
@@ -42,10 +42,16 @@ describe('CreateBusinesses component', () => {
 });
 
 describe('Businesses component', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
 
-    const wrapper = shallow(<Businesses />);
+    afterEach(() => {
+        moxios.uninstall();
+    });
 
     it('renders properly', () => {
+        let wrapper = shallow(<Businesses />);
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
@@ -100,12 +106,6 @@ describe('BackNav component', () => {
 });
 
 describe('EditBusiness component', () => {
-    const localStorageMock = {
-        getItem: jest.fn(),
-        setItem: jest.fn(),
-        clear: jest.fn()
-    };
-    global.localStorage = localStorageMock;
     const params = {
         params: {
             id: 1,
@@ -116,7 +116,6 @@ describe('EditBusiness component', () => {
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
-    
     
     it('has initial state', () => {
         expect(wrapper.state().id).toEqual('');
