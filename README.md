@@ -1,8 +1,12 @@
+[![Build Status](https://travis-ci.org/kzyGit/Weconnect-React.svg?branch=develop)](https://travis-ci.org/kzyGit/Weconnect-React)
+[![Coverage Status](https://coveralls.io/repos/github/kzyGit/Weconnect-React/badge.svg?branch=develop)](https://coveralls.io/github/kzyGit/Weconnect-React?branch=develop)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0f1657fb7fa04eeb8f3438dadeafa46b)](https://www.codacy.com/project/kzyGit/Weconnect-React/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kzyGit/Weconnect-React&amp;utm_campaign=Badge_Grade_Dashboard)
+
 <h3>WeConnect</h3>
 
 WeConnect is an application that links individuals to businesses. A user is able to view avaiable businesses, view their profiles and reviews and also create an account. An authorised user is able to create a business and manage the businesses by either updating or deleting as well as adding reviews to businesses.<br><br>
-Link to WeConnect design template: https://kzygit.github.io/designs/UI/index.html<br><br>
-Link to Heroku api: https://weconnectapi-v2.herokuapp.com/<br><br>
+
+Link to Heroku application: https://reactapp-weconnect.herokuapp.com/<br><br>
 Link to WeConnect API documentation: https://app.swaggerhub.com/apis/Andela19/Weconnect-v2/1.0.0<br> 
 
 <h4>Technology used</h4>

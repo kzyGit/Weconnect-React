@@ -1,0 +1,467 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActivateAccount component renders properly 1`] = `<div />`;
+
+exports[`Editpassword component renders properly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-md-3"
+  />
+  <div
+    className="col-md-6"
+    id="businesscontent"
+  >
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Edit my password
+    </h3>
+    <br />
+    <form
+      className="create-business-form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label>
+          Email:
+        </label>
+        <input
+          className="field"
+          name="email"
+          type="text"
+        />
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          Current Password:
+        </label>
+        <input
+          className="field"
+          name="current_password"
+          type="password"
+        />
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          New Password:
+        </label>
+        <input
+          className="field"
+          name="new_password"
+          type="password"
+        />
+      </div>
+      <br />
+      <div
+        className="form-group"
+      >
+        <label>
+          Confirm Password:
+        </label>
+        <input
+          className="field"
+          name="confirm_password"
+          type="password"
+        />
+      </div>
+      <br />
+      <br />
+      <a
+        style={
+          Object {
+            "float": "right",
+          }
+        }
+      >
+        <button
+          className="btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </a>
+    </form>
+  </div>
+  <div
+    className="col-md-3"
+  />
+</div>
+`;
+
+exports[`Login component renders properly 1`] = `
+<div
+  className="signupcontent"
+>
+  <div
+    className="row"
+  >
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Login
+    </h3>
+    <br />
+    <div
+      className="col-md-1"
+    />
+    <div
+      className="col-md-10"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Username:
+          </label>
+          <input
+            className="field"
+            name="username"
+            required={true}
+            type="text"
+          />
+        </div>
+        <br />
+        <div
+          className="form-group"
+        >
+          <label>
+            Password:
+          </label>
+          <input
+            className="field"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <br />
+        <button
+          className="btn btn-default"
+          style={
+            Object {
+              "float": "right",
+            }
+          }
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+    <br />
+    <br />
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/resetpassword"
+    >
+      <span
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+      >
+        Forgot password?
+      </span>
+    </Link>
+    <Link
+      onlyActiveOnIndex={false}
+      style={Object {}}
+      to="/signup"
+    >
+      <span
+        style={
+          Object {
+            "paddingLeft": "15%",
+          }
+        }
+      >
+        No account? Signup
+      </span>
+    </Link>
+    <div
+      className="col-md-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`My404Component component renders properly 1`] = `
+<div
+  className="row"
+/>
+`;
+
+exports[`Resetpassword component renders properly 1`] = `
+<div
+  className="signupcontent"
+>
+  <div
+    className="row"
+  >
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Request Password Reset:
+    </h3>
+    <br />
+    <div
+      className="col-md-1"
+    />
+    <div
+      className="col-md-10"
+    >
+      <form
+        className="reset-pwd-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Email:
+          </label>
+          <input
+            className="field"
+            name="email"
+            type="email"
+          />
+        </div>
+        <br />
+        <a
+          style={
+            Object {
+              "float": "right",
+            }
+          }
+        >
+          <button
+            className="btn btn-primary"
+            type="submit"
+          >
+            Send Request
+          </button>
+        </a>
+         
+        <br />
+      </form>
+    </div>
+    <div
+      className="col-md-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`Resetpwd component renders properly 1`] = `
+<div
+  className="signupcontent"
+>
+  <div
+    className="row"
+  >
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Reset Password:
+    </h3>
+    <br />
+    <div
+      className="col-md-1"
+    />
+    <div
+      className="col-md-10"
+    >
+      <form
+        className="reset-pwd-form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            New Password:
+          </label>
+          <input
+            className="field"
+            name="new_pwd"
+            type="password"
+          />
+        </div>
+        <br />
+        <div
+          className="form-group"
+        >
+          <label>
+            Confirm Password:
+          </label>
+          <input
+            className="field"
+            name="confirm_pwd"
+            type="password"
+          />
+        </div>
+        <br />
+        <a
+          style={
+            Object {
+              "float": "right",
+            }
+          }
+        >
+          <button
+            className="btn btn-primary"
+            type="submit"
+          >
+            Reset
+          </button>
+        </a>
+        <br />
+      </form>
+    </div>
+    <div
+      className="col-md-1"
+    />
+  </div>
+</div>
+`;
+
+exports[`Signup component renders properly 1`] = `
+<div
+  className="signupcontent"
+>
+  <div
+    className="row"
+  >
+    <h3
+      style={
+        Object {
+          "color": "break",
+          "paddingLeft": "20px",
+        }
+      }
+    >
+      Signup
+    </h3>
+    <br />
+    <div
+      className="col-md-1"
+    />
+    <div
+      className="col-md-10"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label>
+            Username:
+          </label>
+          <input
+            className="field"
+            name="username"
+            required={true}
+            type="text"
+          />
+        </div>
+        <br />
+        <div
+          className="form-group"
+        >
+          <label>
+            Email:
+          </label>
+          <input
+            className="field"
+            name="email"
+            required={true}
+            type="email"
+          />
+        </div>
+        <br />
+        <div
+          className="form-group"
+        >
+          <label>
+            Password:
+          </label>
+          <input
+            className="field"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <br />
+        <div
+          className="form-group"
+        >
+          <label>
+            Confirm Password:
+          </label>
+          <input
+            className="field"
+            name="confirm_password"
+            type="password"
+          />
+        </div>
+        <br />
+        <a
+          href="index.html"
+          style={
+            Object {
+              "float": "right",
+            }
+          }
+        >
+          <button
+            className="btn btn-default"
+            type="submit"
+          >
+            Submit
+          </button>
+        </a>
+      </form>
+    </div>
+    <div
+      className="col-md-1"
+    />
+  </div>
+</div>
+`;
