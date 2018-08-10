@@ -20,7 +20,7 @@ class Signup extends Component {
    */
   signUp = (e) => {
     e.preventDefault();
-    this.setState({ loading: true});
+    this.setState({ loading: true });
     const username = e.target.elements.username.value;
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
@@ -40,19 +40,18 @@ class Signup extends Component {
         icon: "success",
         button: "Ok",
       });
-    })
-      .catch(error => {
-        if (error.response.status === 409) {
-          const message = error.response.data.Error;
-          swal("Error!!", message, "error");
-          this.setState({ loading: false});
-        }
-        else if (error.response.status === 400) {
-          const message = error.response.data.Error;
-          swal("Error!!", message, "error");
-          this.setState({ loading: false});
-        }
-      });
+    }).catch(error => {
+      if (error.response.status === 409) {
+        const message = error.response.data.Error;
+        swal("Error!!", message, "error");
+        this.setState({ loading: false });
+      }
+      else if (error.response.status === 400) {
+        const message = error.response.data.Error;
+        swal("Error!!", message, "error");
+        this.setState({ loading: false });
+      }
+    });
   }
   render() {
     return (

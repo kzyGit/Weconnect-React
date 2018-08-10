@@ -30,9 +30,7 @@ class ActivateAccount extends Component {
           button: "Ok",
         });
       }
-    })
-
-      .catch();
+    }).catch();
   }
 
   render() {

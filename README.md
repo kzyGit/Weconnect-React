@@ -31,7 +31,13 @@ Move into our WeConnect directory <br>
 
 <h4>Running the api</h4>
 
-- To run the application use the comand:<br>
+- To run the application, first add node_modules to your root application by running the following command:<br>
+```sh
+npm install
+```
+<br>
+
+The application is set. Start the application by the command:<br>
 ```sh
 npm start
 ```
