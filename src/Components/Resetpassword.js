@@ -32,7 +32,7 @@ class ResetPassword extends Component {
                                 :
                                 loader
                             } <br />
-                            </form>
+                        </form>
                     </div>
                     <div className="col-md-1"></div>
                 </div>

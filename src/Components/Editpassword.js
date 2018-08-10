@@ -95,8 +95,7 @@ class EditPassword extends Component {
           button: "OK",
         });
       }
-    })
-      .catch();
+    }).catch();
   }
 }
 

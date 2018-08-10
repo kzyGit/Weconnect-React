@@ -9,6 +9,8 @@ import icon from '../Images/businessicon.png';
 
 /**
  * This component renders all available businesses
+ * @returns {obj} businesses
+ * @param {string} e
  */
 class Businesses extends Component {
   constructor() {
@@ -22,6 +24,8 @@ class Businesses extends Component {
 
   /**
    * update local state with new page of items
+   * @param {obj} pageOfItems
+   * @returns {obj} businesses
    */
   onChangePage(pageOfItems) {
     this.setState({ pageOfItems });
@@ -34,7 +38,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to retrieve a business searched by name
-   * @param {string} name
+   * @param {string} e
    * @return {object} businesses of the search name
    */
   searchByName = (e) => {
@@ -55,6 +59,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to filter businesses of a specified location and category
+   * @param {string} e
    * @return {object} businesses of a specified location and category
    */
   filter = (e) => {
@@ -86,44 +91,49 @@ class Businesses extends Component {
     this.search.value = '';
   }
 
+  reloadpage = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  }
+
   render() {
     return (
 
       <div className="businessescontent">
         <div className="row">
-          <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>Businesses</h3><br />
+          <h3 onClick={this.reloadpage} style={{ paddingLeft: '20px', cursor: 'pointer', color: 'maroon' }}>Businesses</h3><br />
           <div className="row">
-          <div className="col-sm-8" id='filterspan'>
-          
-          <form onSubmit={this.filter} id="filterform">
-              <span>Category: </span><span>
-                <select name="searchcategory" ref={(ref) => this.cat = ref} onChange={this.changefilter} id="search" >
-                  <option value="">All</option>
-                  <option>Technology</option>
-                  <option>Tourism & Hotels</option>
-                  <option>Health</option>
-                  <option>Education</option>
-                  <option>Finance & Accounting</option>
-                  <option>Farming</option>
-                  <option>Ecommerse</option>
-                  <option>Real Estate</option>
-                  <option>Manufacturing</option>
-                </select></span>
+            <div className="col-sm-8" id='filterspan'>
 
-              <span style={{ paddingLeft:'20px' }}>Location: </span><span>
-                <input type="text" ref={(ref) => this.loc = ref} onChange={this.changefilter} name="searchlocation" id="searchfilter"  /></span>
+              <form onSubmit={this.filter} id="filterform">
+                <span>Category: </span><span>
+                  <select name="searchcategory" ref={(ref) => this.cat = ref} onChange={this.changefilter} id="search" >
+                    <option value="">All</option>
+                    <option>Technology</option>
+                    <option>Tourism & Hotels</option>
+                    <option>Health</option>
+                    <option>Education</option>
+                    <option>Finance & Accounting</option>
+                    <option>Farming</option>
+                    <option>Ecommerse</option>
+                    <option>Real Estate</option>
+                    <option>Manufacturing</option>
+                  </select></span>
+
+                <span style={{ paddingLeft: '20px' }}>Location: </span><span>
+                  <input type="text" ref={(ref) => this.loc = ref} onChange={this.changefilter} name="searchlocation" id="searchfilter" /></span>
                 <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
 
               </form>
             </div>
-          <div className="col-sm-1"></div>
-          <div className="col-sm-3">
-          
-          <form onSubmit={this.searchByName} id="searchform">
-              <span><input type="text" onChange={this.changename} ref={(ref) => this.search = ref} id="searchname" name="searchname" placeholder="Search by name..." /></span>
-              <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
-            </form>
-            
+            <div className="col-sm-1"></div>
+            <div className="col-sm-3">
+
+              <form onSubmit={this.searchByName} id="searchform">
+                <span><input type="text" onChange={this.changename} ref={(ref) => this.search = ref} id="searchname" name="searchname" placeholder="Search by name..." /></span>
+                <span><button type="submit" id="search" style={{ paddingRight: '20px' }}><span className="glyphicon glyphicon-search" ></span></button></span>
+              </form>
+
             </div>
 
           </div> <br /><br />
@@ -131,23 +141,23 @@ class Businesses extends Component {
             {this.state.businesses.length > 0 &&
               <div>
                 <div id='bcards'>
-                    {this.state.businesses.length > 0 &&
+                  {this.state.businesses.length > 0 &&
 
-                      this.state.pageOfItems.map(business =>
+                    this.state.pageOfItems.map(business =>
 
-                        <div key={business.id} id='card' className="card col-md-3">
+                      <div key={business.id} id='card' className="card col-md-3">
                         <div id="carditem">
-                        
+
                           <h4 className="card-title">{business.name}</h4>
                           <div className="card-image">
-                            <img src={icon} alt="Business Logo" style={{ height: '100px', width: '120px', marginTop:'5px' }} className="img-thumbnail" /><br />
+                            <img src={icon} alt="Business Logo" style={{ height: '100px', width: '120px', marginTop: '5px' }} className="img-thumbnail" /><br />
                           </div><br />
                           <span id='label'>Category:</span> {business.category}<br /><br />
                           <span id='label'>Location:</span> {business.location}<br />
                           <br /><Link to={`/business/${business.id}`} id='businesslink'><button type="submit" className="btn btn-default">Read More</button></Link>
                           <br /><br /></div><br />
-                        </div>
-                      )}
+                      </div>
+                    )}
                 </div>
 
                 <br /><br />

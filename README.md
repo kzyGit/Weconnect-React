@@ -18,12 +18,6 @@ Link to WeConnect API documentation: https://app.swaggerhub.com/apis/Andela19/We
 
 <h4>Installation and Setup</h4>
 
-Create and activate virtual environment:<br>
-
- ```sh
-python3 -m venv env
-source ./env/bin/activate 
- ```
 Clone or download the api from github. To clone:<br>
 
 ```sh
@@ -37,17 +31,19 @@ Move into our WeConnect directory <br>
 
 <h4>Running the api</h4>
 
-- To run the application use the comand:<br>
+- To run the application, first add node_modules to your root application by running the following command:<br>
+```sh
+npm install
+```
+<br>
+
+The application is set. Start the application by the command:<br>
 ```sh
 npm start
 ```
 <br>
 
 - Once running, a browser automatically opens the application. <br>
-
-- Select body section on the postman navigation tabs, select raw, then Json, add parameters as indicated in the route methods then Send request
-
-
 
 <h4>UI Templates</h4>
 The UI is hosted on github pages. Link: https://kzygit.github.io/designs/UI/index.html

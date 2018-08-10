@@ -9,7 +9,6 @@ import My404Component from '../Components/My404Component';
 import ActivateAccount from '../Components/ActivateAccount';
 import { shallowToJson } from 'enzyme-to-json';
 import sinon from 'sinon';
-import axios from 'axios';
 import moxios from 'moxios';
 
 describe('Login component', () => {
@@ -30,16 +29,14 @@ describe('Login component', () => {
 
 
 describe('Signup component', () => {
-
     beforeEach(() => {
-        moxios.install(axios);
+        moxios.install();
     });
 
     afterEach(() => {
-        moxios.uninstall(axios);
+        moxios.uninstall();
     });
-
-    const wrapper = shallow(<Signup />);
+    let wrapper = shallow(<Signup />);
 
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -47,7 +44,7 @@ describe('Signup component', () => {
 
     it('handles submit', () => {
         let signUp = sinon.spy();
-        let wrapper = mount(<Signup onSubmit={signUp} />);
+        wrapper = mount(<Signup onSubmit={signUp} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => { });
     });
@@ -73,14 +70,22 @@ describe('Resetpwd component', () => {
 });
 
 describe('Editpassword component', () => {
-    const wrapper = shallow(<Editpassword />);
+    beforeEach(() => {
+        moxios.install();
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
+    });
+
+    let wrapper = shallow(<Editpassword />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 
     it('handles editpass onsubmit', () => {
         let editpass = sinon.spy();
-        let wrapper = mount(<Editpassword onSubmit={editpass} />);
+        wrapper = mount(<Editpassword onSubmit={editpass} />);
         wrapper.find('form').simulate('submit');
         moxios.wait(() => {
         });
@@ -88,22 +93,37 @@ describe('Editpassword component', () => {
 
 });
 describe('ActivateAccount component', () => {
+    beforeEach(() => {
+        moxios.install();
+    });
+
+    afterEach(() => {
+        moxios.uninstall();
+    });
 
     const params = {
         params: {
             token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzM0NTg4OTEsImlhdCI6MTUzMzQ1Nzk5MSwic3ViIjoxfQ.kyBs0i9IdYL1g0mTZkmBRkDJBjI0dnXii5MebQrRmE8',
         },
     };
-    const wrapper = shallow(<ActivateAccount params={{ params }} />);
+    
     it('renders properly', () => {
+        let wrapper = shallow(<ActivateAccount params={{ params }} />);
         expect(shallowToJson(wrapper)).toMatchSnapshot();
     });
 });
 
-
 describe('My404Component component', () => {
-    const wrapper = shallow(<My404Component />);
+    let wrapper = shallow(<My404Component />);
     it('renders properly', () => {
         expect(shallowToJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('handles redirect onbuttonclick', () => {
+        let redirect = sinon.spy();
+        wrapper = mount(<My404Component onClick={redirect} />);
+        wrapper.find('button').simulate('click');
+        moxios.wait(() => {
+        });
     });
 });

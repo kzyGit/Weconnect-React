@@ -11,7 +11,6 @@ export const Base_url = process.env.REACT_APP_api_url;
  */
 class Header extends Component {
   render() {
-
     /**
      * Logout logged in user.
      * Clear access token and loggedIn status from local storage

@@ -64,6 +64,8 @@ class EditBusiness extends Component {
 
   /**
    * Make server request to update the business of the given id
+   * @param {string} e
+   * @returns {string} success message
    */
   editBusiness = (e) => {
     e.preventDefault();
@@ -87,24 +89,25 @@ class EditBusiness extends Component {
         icon: "success",
         button: "OK",
       });
-    })
-      .catch(error => {
-        if (error.response.status === 409) {
-          swal("Error!!", error.response.data.Error, "error");
-        }
-        else if (error.response.status === 401) {
-          swal("Error!!", error.response.data.Error, "error");
-          localStorage.removeItem('loggedIn');
-          browserHistory.push('/login');
-        }
-        else if (error.response.status === 400) {
-          swal("Error!!", error.response.data.Error, "error");
-        }
-      });
+    }).catch(error => {
+      if (error.response.status === 409) {
+        swal("Error!!", error.response.data.Error, "error");
+      }
+      else if (error.response.status === 401) {
+        swal("Error!!", error.response.data.Error, "error");
+        localStorage.removeItem('loggedIn');
+        browserHistory.push('/login');
+      }
+      else if (error.response.status === 400) {
+        swal("Error!!", error.response.data.Error, "error");
+      }
+    });
   }
 
   /**
    * update local state with new page of items
+   * @param {string} e
+   * @returns {state} changestate
    */
   changelog(e) {
     this.setState({
