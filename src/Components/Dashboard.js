@@ -46,6 +46,7 @@ class Dashboard extends Component {
   /**
    * Make a server request to delete a business
    * @param {int} business_id
+   * @returns {string} success message
    */
   deleteBusiness = (business_id) => {
     const auth_token = localStorage.getItem("access_token");

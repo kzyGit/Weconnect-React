@@ -24,9 +24,11 @@ exports[`Businesses component renders properly 1`] = `
     className="row"
   >
     <h3
+      onClick={[Function]}
       style={
         Object {
           "color": "maroon",
+          "cursor": "pointer",
           "paddingLeft": "20px",
         }
       }

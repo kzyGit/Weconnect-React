@@ -212,8 +212,42 @@ exports[`Login component renders properly 1`] = `
 
 exports[`My404Component component renders properly 1`] = `
 <div
-  className="row"
-/>
+  id="redirectpage"
+>
+  <h1>
+    <i
+      className="fa fa-exclamation-triangle"
+      style={
+        Object {
+          "color": "maroon",
+        }
+      }
+    />
+  </h1>
+  <h1
+    style={
+      Object {
+        "color": "maroon",
+      }
+    }
+  >
+    Page Not Found
+  </h1>
+  <br />
+  <p>
+    The page you are trying to access does not exist. Go back to a valid page
+    <br />
+    <br />
+    <br />
+    <button
+      className="btn btn-default"
+      onClick={[Function]}
+    >
+      Back
+    </button>
+  </p>
+  <br />
+</div>
 `;
 
 exports[`Resetpassword component renders properly 1`] = `

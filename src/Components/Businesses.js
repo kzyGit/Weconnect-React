@@ -9,6 +9,8 @@ import icon from '../Images/businessicon.png';
 
 /**
  * This component renders all available businesses
+ * @returns {obj} businesses
+ * @param {string} e
  */
 class Businesses extends Component {
   constructor() {
@@ -22,6 +24,8 @@ class Businesses extends Component {
 
   /**
    * update local state with new page of items
+   * @param {obj} pageOfItems
+   * @returns {obj} businesses
    */
   onChangePage(pageOfItems) {
     this.setState({ pageOfItems });
@@ -34,7 +38,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to retrieve a business searched by name
-   * @param {string} name
+   * @param {string} e
    * @return {object} businesses of the search name
    */
   searchByName = (e) => {
@@ -55,6 +59,7 @@ class Businesses extends Component {
 
   /**
    * Makes a server request to filter businesses of a specified location and category
+   * @param {string} e
    * @return {object} businesses of a specified location and category
    */
   filter = (e) => {
@@ -85,13 +90,18 @@ class Businesses extends Component {
     e.preventDefault();
     this.search.value = '';
   }
+  
+  reloadpage = (e) => {
+    e.preventDefault();
+    window.location.reload();
+  }
 
   render() {
     return (
 
       <div className="businessescontent">
         <div className="row">
-          <h3 style={{ paddingLeft: '20px', color: 'maroon' }}>Businesses</h3><br />
+        <h3 onClick={this.reloadpage} style={{ paddingLeft: '20px', cursor: 'pointer', color: 'maroon' }}>Businesses</h3><br />
           <div className="row">
           <div className="col-sm-8" id='filterspan'>
           

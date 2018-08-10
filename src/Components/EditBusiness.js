@@ -64,6 +64,8 @@ class EditBusiness extends Component {
 
   /**
    * Make server request to update the business of the given id
+   * @param {string} e
+   * @returns {string} success message
    */
   editBusiness = (e) => {
     e.preventDefault();
@@ -105,6 +107,8 @@ class EditBusiness extends Component {
 
   /**
    * update local state with new page of items
+   * @param {string} e
+   * @returns {state} changestate
    */
   changelog(e) {
     this.setState({

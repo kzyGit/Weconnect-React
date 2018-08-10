@@ -22,7 +22,7 @@ class Login extends Component {
   login = (e) => {
     e.preventDefault();
     this.setState({ loading: true});
-    const username = e.target.elements.username.value;
+    let username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
     localStorage.setItem('loggedIn', false);
 
@@ -39,7 +39,7 @@ class Login extends Component {
 
       else {
         const access_token = response.data.access_token;
-        const username = response.data.username;
+        username = response.data.username;
         const email = response.data.email;
 
         localStorage.setItem('loggedIn', true);

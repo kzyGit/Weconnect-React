@@ -16,6 +16,7 @@ class CreateBusiness extends Component {
 
   /**
    * Display content only when user is authorised. If not, redirect to login
+   * @returns {obj} business details
    */
   componentDidMount() {
 
@@ -74,6 +75,7 @@ class CreateBusiness extends Component {
 
   /**
    * Makes a server request to post a new business
+   * @param {string} e
    * @return {object} a new business
    */
   createBusiness = (e) => {
