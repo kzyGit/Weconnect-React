@@ -68,54 +68,54 @@ class Business extends Component {
 
   render() {
     return (
-      
-        <div className="onebusinesscontent" style={{ padding: '25px' }}>
-          <div style={{ textAlign: 'center' }}>
-            <img src={icon} alt="Business Logo" style={{ height: '100px', width: '120px' }} className="img-thumbnail" /><br />
-            <h4 id="details">{this.state.businesses.Name}</h4>
+
+      <div className="onebusinesscontent" style={{ padding: '25px' }}>
+        <div style={{ textAlign: 'center' }}>
+          <img src={icon} alt="Business Logo" style={{ height: '100px', width: '120px' }} className="img-thumbnail" /><br />
+          <h4 id="details">{this.state.businesses.Name}</h4>
+        </div>
+
+        <div>
+          <h4 id="details">About us</h4>
+          <div>
+            {this.state.businesses.description}
           </div>
-
-          <div>
-            <h4 id="details">About us</h4>
-            <div>
-              {this.state.businesses.description}
-            </div>
-          </div><br />
-
-          <div>
-            <h4 id="details">Location</h4>
-            {this.state.businesses.Location}
-          </div><br />
-
-          <div>
-            <h4 id="details">Contacts</h4>
-            +254 721 988 543,+254 799 999 555, companyinfo@gmail.com
         </div><br />
 
+        <div>
+          <h4 id="details">Location</h4>
+          {this.state.businesses.Location}
+        </div><br />
+
+        <div>
+          <h4 id="details">Contacts</h4>
+          +254 721 988 543,+254 799 999 555, companyinfo@gmail.com
+        </div><br />
+
+        <div>
+          <button id="details" className="btn btn-default" onClick={this.showreviews} style={{ pointer: 'cursor' }}>Reviews</button>
+          {localStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
+          <span id='rev'></span>
           <div>
-            <button id="details" className="btn btn-default" onClick={ this.showreviews } style={{ pointer:'cursor' }}>Reviews</button>
-            {localStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
-            <span id='rev'></span>
-            <div>
-              {!this.state.isHidden &&
-                <form onSubmit={this.addreview.bind(this)} id='reviewform'><br />
-                  <textarea cols="30" name='content' className="form-control" style={{ width: '98%' }} required></textarea><br />
-                  <button type="submit" className="btn btn-default">Submit</button><br /><br />
-                </form>}
-            </div>
+            {!this.state.isHidden &&
+              <form onSubmit={this.addreview.bind(this)} id='reviewform'><br />
+                <textarea cols="30" name='content' className="form-control" style={{ width: '98%' }} required></textarea><br />
+                <button type="submit" className="btn btn-default">Submit</button><br /><br />
+              </form>}
+          </div>
 
-            <div className="row"> <br />
-              <div className="col-md-12" id="reviews" >
+          <div className="row"> <br />
+            <div className="col-md-12" id="reviews" >
 
-                {this.state.reviews.map(review =>
-                  <div id="review" key={review.Id}>
-                    {review.Review}<br />
-                    <span id="reviewer"><span className="glyphicon glyphicon-user" style={{ paddingRight: '10px', color: 'black' }}></span> {review.createdBy}</span><br />
-                  </div>)}
-              </div>
+              {this.state.reviews.map(review =>
+                <div id="review" key={review.Id}>
+                  {review.Review}<br />
+                  <span id="reviewer"><span className="glyphicon glyphicon-user" style={{ paddingRight: '10px', color: 'black' }}></span> {review.createdBy}</span><br />
+                </div>)}
             </div>
           </div>
         </div>
+      </div>
     );
   }
 
@@ -141,20 +141,19 @@ class Business extends Component {
         text: response.data.Success,
         icon: "success"
       });
-    })
-      .catch(error => {
-        if (error.response.status === 401) {
-          const message = error.response.data.Error;
-          swal("Error!!", message, "error");
-          localStorage.removeItem('loggedIn');
-          browserHistory.push('/login');
-        }
+    }).catch(error => {
+      if (error.response.status === 401) {
+        const message = error.response.data.Error;
+        swal("Error!!", message, "error");
+        localStorage.removeItem('loggedIn');
+        browserHistory.push('/login');
+      }
 
-        else if (error.response.status === 400) {
-          const message = error.response.data.Error;
-          swal("Error!!", message, "error");
-        }
-      });
+      else if (error.response.status === 400) {
+        const message = error.response.data.Error;
+        swal("Error!!", message, "error");
+      }
+    });
   }
 }
 

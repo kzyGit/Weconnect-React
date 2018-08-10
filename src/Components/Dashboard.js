@@ -58,8 +58,7 @@ class Dashboard extends Component {
       icon: "warning",
       buttons: true,
       dangerMode: true,
-    })
-      .then((willDelete) => {
+    }).then((willDelete) => {
         if (willDelete) {
 
           axios.delete(`${Base_url}/businesses/${business_id}`, config)
