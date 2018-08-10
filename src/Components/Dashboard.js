@@ -22,12 +22,12 @@ class Dashboard extends Component {
    */
   componentDidMount() {
 
-    if (!localStorage.loggedIn) {
+    if (!sessionStorage.loggedIn) {
       swal("Error!!", 'Login first to view your dashboard', "error");
       browserHistory.push('/login');
     }
     else {
-      const auth_token = localStorage.getItem("access_token");
+      const auth_token = sessionStorage.getItem("access_token");
       const config = { headers: { 'Authorization': "bearer " + auth_token } };
 
       axios.get(`${Base_url}/mybusinesses`, config).then(response => {
@@ -36,7 +36,7 @@ class Dashboard extends Component {
         if (error.response.status === 401) {
           swal("Error!!", "Login session expired, Login again to view your dashboard", "error");
 
-          localStorage.removeItem('loggedIn');
+          sessionStorage.removeItem('loggedIn');
           browserHistory.push('/login');
         }
       });
@@ -49,7 +49,7 @@ class Dashboard extends Component {
    * @returns {string} success message
    */
   deleteBusiness = (business_id) => {
-    const auth_token = localStorage.getItem("access_token");
+    const auth_token = sessionStorage.getItem("access_token");
     const config = {
       headers: { 'Authorization': "bearer " + auth_token }
     };

@@ -94,7 +94,7 @@ class Business extends Component {
 
         <div>
           <button id="details" className="btn btn-default" onClick={this.showreviews} style={{ pointer: 'cursor' }}>Reviews</button>
-          {localStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
+          {sessionStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
           <span id='rev'></span>
           <div>
             {!this.state.isHidden &&
@@ -127,7 +127,7 @@ class Business extends Component {
   addreview = (e) => {
     e.preventDefault();
 
-    const auth_token = localStorage.getItem("access_token");
+    const auth_token = sessionStorage.getItem("access_token");
     const config = { headers: { 'Authorization': "bearer " + auth_token } };
     const bid = this.props.params.bid;
     const content = e.target.elements.content.value;
@@ -145,7 +145,7 @@ class Business extends Component {
       if (error.response.status === 401) {
         const message = error.response.data.Error;
         swal("Error!!", message, "error");
-        localStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('loggedIn');
         browserHistory.push('/login');
       }
 
