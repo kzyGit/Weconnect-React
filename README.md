@@ -53,7 +53,7 @@ The UI is hosted on github pages. Link: https://kzygit.github.io/designs/UI/inde
   <ul>
   <li>A user can create an account</li>
   <li>Registered user can login, reset password,logout, add a business, manage the businesses and add business reviews</li>
-  <li>All sers can view businesses and their reviews</li>
+  <li>All users can view businesses and their reviews</li>
   </ul>
 
 
