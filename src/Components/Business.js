@@ -93,9 +93,8 @@ class Business extends Component {
         </div><br />
 
           <div>
-            <button id="details" className="btn btn-default" onClick={ this.showreviews } style={{ pointer:'cursor' }}>Reviews 
+            <button id="details" className="btn btn-default" onClick={ this.showreviews } style={{ pointer:'cursor' }}>Reviews</button>
             {localStorage.loggedIn && <button onClick={this.toggleHidden.bind(this)} className="btn btn-primary" style={{ marginLeft: '10%' }}><span className="glyphicon glyphicon-plus-sign"></span> Add Review</button>}
-            </button>
             <span id='rev'></span>
             <div>
               {!this.state.isHidden &&
